@@ -25,13 +25,13 @@ const sortRuleCreator = ESLintUtils.RuleCreator(name => name);
 export function createSortRule(ruleMeta: SortRuleWithMetaAndName) {
 	return sortRuleCreator({
 		...ruleMeta,
-		defaultOptions: [{ caseSensitive: true }],
+		defaultOptions: [{ autoFix: false, caseSensitive: true, direction: "asc" }],
 		meta: {
 			...ruleMeta.meta,
 			fixable: "code",
 			messages: {
 				"incorrect-order":
-					"Decorator {{ decorator }} should be placed before {{ previousDecorator }}."
+					"Decorator @{{ decorator }} should be placed before @{{ previous }}."
 			},
 			schema: {
 				// TODO
