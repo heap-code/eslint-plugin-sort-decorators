@@ -9,7 +9,7 @@
 		}
 	},
 	"dependencies": {
-		"@typescript-eslint/utils": "^5.60.1"
+		"@typescript-eslint/utils": "^5.0.0"
 	},
 	"description": "Eslint plugin to sort multiple decorators",
 	"devDependencies": {
@@ -24,6 +24,7 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
+		"eslint-doc-generator": "^1.4.3",
 		"eslint-plugin-eslint-plugin": "^5.1.0",
 		"eslint-plugin-etc": "^2.0.3",
 		"eslint-plugin-import": "^2.27.5",
@@ -59,7 +60,7 @@
 	],
 	"license": "MIT",
 	"main": "./dist/index.js",
-	"name": "@heap-code/eslint-plugin-sort-decorators",
+	"name": "eslint-plugin-sort-decorators",
 	"peerDependencies": {
 		"@typescript-eslint/parser": "^5.0.0",
 		"eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
@@ -73,6 +74,7 @@
 	},
 	"scripts": {
 		"build": "tsup-node src/index.ts --minify --sourcemap --treeshake",
+		"docs:update": "npx eslint-doc-generator",
 		"lint": "eslint .",
 		"lint:fix": "npm run lint -- --fix",
 		"test": "jest --config jest.config.ts",

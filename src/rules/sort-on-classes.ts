@@ -1,10 +1,8 @@
 import { ESLintUtils } from "@typescript-eslint/utils";
 
-// https://typescript-eslint.io/developers/custom-rules#utils-package
+export const SORT_ON_CLASSES_NAME = "sort-on-classes";
 
-export const SORT_DECORATORS_NAME = "sort-decorators";
-
-export const sortDecorators = ESLintUtils.RuleCreator(name => name)({
+export const sortOnClasses = ESLintUtils.RuleCreator(name => name)({
 	create: () => {
 		throw new Error("Not implemented yet");
 	},
@@ -23,5 +21,5 @@ export const sortDecorators = ESLintUtils.RuleCreator(name => name)({
 		schema: [],
 		type: "suggestion"
 	},
-	name: SORT_DECORATORS_NAME
+	name: SORT_ON_CLASSES_NAME
 });

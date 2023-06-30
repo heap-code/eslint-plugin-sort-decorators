@@ -42,13 +42,16 @@ jobs:
       - name: Set default code coverage badge
         run: cp .badges/code/coverage-jest\ coverage.svg .badges/code/coverage.svg
 
-      - name: git config
+      - name: Update rules documentation
+        run: npm run docs:update
+
+      - name: Set git config
         run: |
           git config user.name "heap-code[bot]"
           git config user.email "${{ vars.HC_BOT }}@users.noreply.github.com"
 
-      - name: add badges
-        run: git add .badges
+      - name: add badges and updated docs
+        run: git add .badges/ ./README.md ./docs/rules
 
         # NPM pre-publish
       - name: Clean for build
