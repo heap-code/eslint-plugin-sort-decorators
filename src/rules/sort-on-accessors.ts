@@ -56,8 +56,7 @@ export const sortOnAccessors = createSortRule({
 	},
 	meta: {
 		docs: {
-			// TODO
-			description: ""
+			description: "Enforces order of accessors decorators"
 		}
 	},
 	name: SORT_ON_ACCESSORS_NAME

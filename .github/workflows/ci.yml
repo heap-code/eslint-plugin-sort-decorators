@@ -34,3 +34,7 @@ jobs:
 
       - name: Tests
         run: npm run test:coverage -- --ci
+
+      # No need to have the generated content up-to-date, but its content must be complete
+      - name: Verify documentation content
+        run: npm run docs:update

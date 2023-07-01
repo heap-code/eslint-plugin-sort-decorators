@@ -39,8 +39,7 @@ export const sortOnMethods = createSortRule({
 	},
 	meta: {
 		docs: {
-			// TODO
-			description: ""
+			description: "Enforces order of methods decorators"
 		}
 	},
 	name: SORT_ON_METHODS_NAME

@@ -81,9 +81,9 @@ export function sortRuleListener(
 			return;
 		}
 
-		const [{ name: currentName, node: currentNode }, ...remaining] = decorators;
+		const [{ name: currentName }, ...remaining] = decorators;
 
-		for (const { name } of remaining) {
+		for (const { name, node } of remaining) {
 			if (compare(currentName, name) > 0) {
 				context.report({
 					data: {
@@ -92,7 +92,7 @@ export function sortRuleListener(
 					},
 					fix: autoFix ? fixer => createFix(fixer, decorators) : undefined,
 					messageId: "incorrect-order",
-					node: currentNode
+					node
 				});
 
 				return;

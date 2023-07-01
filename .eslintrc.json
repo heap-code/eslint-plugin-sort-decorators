@@ -2,6 +2,7 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:eslint-comments/recommended",
+		"plugin:eslint-plugin/recommended",
 		"plugin:typescript-sort-keys/recommended"
 	],
 	"overrides": [
@@ -256,18 +257,24 @@
 				"markdownlint/md013": [
 					"error",
 					{
-						"line_length": 100
+						"line_length": 100,
+						"tables": false
 					}
 				],
 				"markdownlint/md033": [
 					"error",
 					{
-						"allowed_elements": ["a", "img"]
+						"allowed_elements": ["a", "img", "br", "details", "summary", "code"]
 					}
 				],
 				"no-trailing-spaces": "off",
 				"prettier/prettier": "off"
-				//				"spellcheck/spell-checker": ["warn"]
+			}
+		},
+		{
+			"files": ["docs/rules/*.md"],
+			"rules": {
+				"markdownlint/md024": "off"
 			}
 		},
 		{
@@ -313,6 +320,8 @@
 				"ignore": ["eslint-enable"]
 			}
 		],
+		"eslint-plugin/require-meta-docs-description": "error",
+		"eslint-plugin/require-meta-docs-url": "error",
 		"func-style": [
 			"error",
 			"declaration",

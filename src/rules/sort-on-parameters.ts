@@ -59,8 +59,7 @@ export const sortOnParameters = createSortRule({
 	},
 	meta: {
 		docs: {
-			// TODO
-			description: ""
+			description: "Enforces order of parameters decorators"
 		}
 	},
 	name: SORT_ON_PARAMETERS_NAME

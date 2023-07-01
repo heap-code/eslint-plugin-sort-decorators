@@ -11,7 +11,7 @@
 	"dependencies": {
 		"@typescript-eslint/utils": "^5.0.0"
 	},
-	"description": "Eslint plugin to sort multiple decorators",
+	"description": "An ESLint plugin to sort decorators",
 	"devDependencies": {
 		"@cspell/eslint-plugin": "^6.31.1",
 		"@release-it/conventional-changelog": "^5.1.1",

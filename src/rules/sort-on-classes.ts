@@ -33,8 +33,7 @@ export const sortOnClasses = createSortRule({
 	},
 	meta: {
 		docs: {
-			// TODO
-			description: ""
+			description: "Enforces order of class decorators"
 		}
 	},
 	name: SORT_ON_CLASSES_NAME

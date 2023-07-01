@@ -45,7 +45,7 @@ export function createSortRule(rule: SortRuleWithMetaAndName) {
 			fixable: "code",
 			messages: {
 				"incorrect-order":
-					"Decorator `@{{ after }}` should be placed before `@{{ previous }}`."
+					"Expected decorators to be in sorted order. `@{{ after }}` should be before `@{{ previous }}`."
 			},
 			type: "layout"
 		}
