@@ -57,6 +57,14 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			}`,
 			name: "Case insensitive",
 			options: [{ caseSensitive: false }]
+		},
+		{
+			code: `
+			class MyClass {
+				@b @a @c
+				protected get accessor() { return 0; }
+			}`,
+			name: "Not applied if not on a property"
 		}
 	],
 
@@ -163,11 +171,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@D @A @C @B
 				public property?: number;
 			}`,
-			errors: [
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
-			],
+			errors: [{ messageId: "incorrect-order" }],
 			name: "Fix with multiple decorators (3 errors detected)",
 			options: [{ autoFix: true }],
 			output: `

@@ -57,6 +57,25 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			}`,
 			name: "Case insensitive",
 			options: [{ caseSensitive: false }]
+		},
+		{
+			code: `
+			@B @A @C
+			class MyClass {
+				@b @a @c
+				public property?: number;
+			}`,
+			name: "Not applied if not on an accessor"
+		},
+		{
+			code: `
+			@B @A @C
+			class MyClass {
+				@b @a @c
+				public property?: number;
+			}`,
+			name: "Not applied if not on an accessor (with autoFix)",
+			options: [{ autoFix: true }]
 		}
 	],
 
@@ -163,12 +182,8 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@D @A @C @B
 				public get accessor() { return 0; }
 			}`,
-			errors: [
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
-			],
-			name: "Fix with multiple decorators (3 errors detected)"
+			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
+			name: "Fix with multiple decorators (2 errors detected)"
 		},
 		{
 			code: `

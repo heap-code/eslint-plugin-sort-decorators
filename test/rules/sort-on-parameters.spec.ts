@@ -6,12 +6,19 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 		{
 			code: `
 			class MyClass {
+				public run(parameter?: number) { return 0; }
+			}`,
+			name: "Without any decorator on parameter"
+		},
+		{
+			code: `
+			class MyClass {
 				public run(
 					@Single
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Single decorator on accessor"
+			name: "Single decorator on parameter"
 		},
 		{
 			code: `
@@ -23,6 +30,17 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				) { return 0; }
 			}`,
 			name: "Basic decorators ordering"
+		},
+		{
+			code: `
+			class MyClass {
+				public constructor(
+					@A
+					@B @C
+					parameter?: number
+				) { return 0; }
+			}`,
+			name: "Basic decorators ordering (on a constructor)"
 		},
 		{
 			code: `
@@ -69,6 +87,25 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 			}`,
 			name: "Case insensitive",
 			options: [{ caseSensitive: false }]
+		},
+		{
+			code: `
+			@B @A @C
+			class MyClass {
+				@b @a @c
+				public property?: number;
+			}`,
+			name: "Not applied if not on a parameter"
+		},
+		{
+			code: `
+			@B @A @C
+			class MyClass {
+				@b @a @c
+				public property?: number;
+			}`,
+			name: "Not applied if not on a parameter (with autoFix)",
+			options: [{ autoFix: true }]
 		}
 	],
 
@@ -88,6 +125,27 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 			output: `
 			class MyClass {
 				public run(
+					@A
+					@B
+					parameter?: number
+				) { return 0; }
+			}`
+		},
+		{
+			code: `
+			class MyClass {
+				public constructor(
+					@B
+					@A
+					parameter?: number
+				) { return 0; }
+			}`,
+			errors: [{ messageId: "incorrect-order" }],
+			name: "Fix simple decorators ordering (on a constructor)",
+			options: [{ autoFix: true }],
+			output: `
+			class MyClass {
+				public constructor(
 					@A
 					@B
 					parameter?: number
@@ -201,12 +259,8 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			errors: [
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
-			],
-			name: "Fix with multiple decorators (3 errors detected)"
+			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
+			name: "Fix with multiple decorators (2 errors detected)"
 		},
 		{
 			code: `
@@ -217,7 +271,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				) { return 0; }
 			}`,
 			errors: [{ messageId: "incorrect-order" }],
-			name: "Fix with multiple decorators (2 errors detected)",
+			name: "Fix with multiple decorators",
 			options: [{ autoFix: true }],
 			output: `
 			class MyClass {

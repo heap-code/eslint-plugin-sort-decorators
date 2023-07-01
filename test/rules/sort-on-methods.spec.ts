@@ -23,6 +23,14 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 		{
 			code: `
 			class MyClass {
+				@C @A @B
+				public constructor() { return 0; }
+			}`,
+			name: "Decorators on a constructor have no effect"
+		},
+		{
+			code: `
+			class MyClass {
 				@A()
 				@B(1)
 				@C({}, "abc")
@@ -57,6 +65,16 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			}`,
 			name: "Case insensitive",
 			options: [{ caseSensitive: false }]
+		},
+		{
+			code: `
+			class MyClass {
+				public run(
+					@b @a @c
+					parameter?: number
+				) { return 0; }
+			}`,
+			name: "Not applied if not on a method"
 		}
 	],
 
@@ -163,12 +181,8 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@D @A @C @B
 				public run() { return 0; }
 			}`,
-			errors: [
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
-			],
-			name: "With multiple decorators (3 errors detected)"
+			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
+			name: "With multiple decorators (2 errors detected)"
 		},
 		{
 			code: `
@@ -176,7 +190,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@D @A @C @B
 				public run() { return 0; }
 			}`,
-			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
+			errors: [{ messageId: "incorrect-order" }],
 			name: "Fix with multiple decorators (2 errors detected)",
 			options: [{ autoFix: true }],
 			output: `

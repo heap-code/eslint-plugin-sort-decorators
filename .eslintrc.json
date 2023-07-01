@@ -295,7 +295,8 @@
 		"@cspell/spellchecker": [
 			"warn",
 			{
-				"autoFix": true
+				"autoFix": true,
+				"customWordListFile": "./tools/cspell/words.txt"
 			}
 		],
 		"@shopify/no-useless-computed-properties": "error",

@@ -45,6 +45,20 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			class MyClass {}`,
 			name: "Case insensitive",
 			options: [{ caseSensitive: false }]
+		},
+		{
+			code: `
+			@a @bc @bc @d
+			class MyClass {}`,
+			name: "Duplicated names"
+		},
+		{
+			code: `
+			class MyClass {
+				@b @a @c
+				public run() { return 0; }
+			}`,
+			name: "Not applied if not on a class"
 		}
 	],
 
@@ -125,12 +139,8 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			code: `
 			@D @A @C @B
 			class MyClass {}`,
-			errors: [
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
-			],
-			name: "With multiple decorators (3 errors detected)"
+			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
+			name: "With multiple decorators (2 errors detected)"
 		},
 		{
 			code: `
@@ -174,6 +184,17 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true, direction: "desc" }],
 			output: `
 			@D @C @B @A
+			class MyClass {}`
+		},
+		{
+			code: `
+			@D @A @C @A
+			class MyClass {}`,
+			errors: [{ messageId: "incorrect-order" }],
+			name: "Fix with duplicated names",
+			options: [{ autoFix: true }],
+			output: `
+			@A @A @C @D
 			class MyClass {}`
 		}
 	]
