@@ -52,7 +52,7 @@ jobs:
 
         # NPM pre-publish
       - name: Clean for build
-        run: rm -r dist/
+        run: rm -rf dist/
       - name: Build
         run: npm run build
 
