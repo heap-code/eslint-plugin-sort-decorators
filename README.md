@@ -63,12 +63,12 @@ The different rules can be defined as follows:
 
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Name                                                   | 🔧 |
-| :----------------------------------------------------- | :- |
-| [sort-on-accessors](docs/rules/sort-on-accessors.md)   | 🔧 |
-| [sort-on-classes](docs/rules/sort-on-classes.md)       | 🔧 |
-| [sort-on-methods](docs/rules/sort-on-methods.md)       | 🔧 |
-| [sort-on-parameters](docs/rules/sort-on-parameters.md) | 🔧 |
-| [sort-on-properties](docs/rules/sort-on-properties.md) | 🔧 |
+| Name                                                   | Description                             | 🔧 |
+| :----------------------------------------------------- | :-------------------------------------- | :- |
+| [sort-on-accessors](docs/rules/sort-on-accessors.md)   | Enforces order of accessors decorators  | 🔧 |
+| [sort-on-classes](docs/rules/sort-on-classes.md)       | Enforces order of class decorators      | 🔧 |
+| [sort-on-methods](docs/rules/sort-on-methods.md)       | Enforces order of methods decorators    | 🔧 |
+| [sort-on-parameters](docs/rules/sort-on-parameters.md) | Enforces order of parameters decorators | 🔧 |
+| [sort-on-properties](docs/rules/sort-on-properties.md) | Enforces order of properties decorators | 🔧 |
 
 <!-- end auto-generated rules list -->

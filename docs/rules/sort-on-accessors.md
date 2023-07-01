@@ -1,4 +1,4 @@
-# sort-decorators/sort-on-accessors
+# Enforces order of accessors decorators (`sort-decorators/sort-on-accessors`)
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 

@@ -1,4 +1,4 @@
-# sort-decorators/sort-on-methods
+# Enforces order of methods decorators (`sort-decorators/sort-on-methods`)
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
