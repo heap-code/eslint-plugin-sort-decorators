@@ -2,6 +2,7 @@ import { ESLintUtils, TSESLint } from "@typescript-eslint/utils";
 
 import { SortRuleMessageIds } from "./sort-rule.message-ids";
 import { SortRuleOptions } from "./sort-rule.options";
+import schema from "./sort-rule.options.schema.json";
 
 type SortRule = ESLintUtils.RuleWithMetaAndName<
 	[SortRuleOptions],
@@ -32,9 +33,7 @@ export function createSortRule(rule: SortRuleWithMetaAndName) {
 		...rule,
 		defaultOptions: [{ autoFix: false, caseSensitive: true, direction: "asc" }],
 		meta: {
-			schema: {
-				// TODO
-			},
+			schema: [schema],
 
 			...rule.meta,
 			docs: {

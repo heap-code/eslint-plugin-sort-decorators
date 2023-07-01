@@ -48,7 +48,8 @@
 		"ts-loader": "^9.4.4",
 		"ts-node": "^10.9.1",
 		"tsup": "^7.1.0",
-		"typescript": "^5.1.5"
+		"typescript": "^5.1.5",
+		"typescript-json-schema": "^0.58.1"
 	},
 	"homepage": "https://github.com/heap-code/eslint-plugin-sort-decorators",
 	"keywords": [
@@ -77,6 +78,8 @@
 		"docs:update": "npx eslint-doc-generator",
 		"lint": "eslint .",
 		"lint:fix": "npm run lint -- --fix",
+		"postschemas:update": "eslint src/lib/sort-rule/sort-rule.options.schema.json --fix",
+		"schemas:update": "typescript-json-schema src/lib/sort-rule/sort-rule.options.ts SortRuleOptions --noExtraProps --required -o src/lib/sort-rule/sort-rule.options.schema.json",
 		"test": "jest --config jest.config.ts",
 		"test:coverage": "npm run test -- --coverage",
 		"test:watch": "npm run test -- --watch"

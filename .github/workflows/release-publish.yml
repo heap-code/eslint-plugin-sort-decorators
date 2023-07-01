@@ -44,6 +44,8 @@ jobs:
 
       - name: Update rules documentation
         run: npm run docs:update
+      - name: Update rules schemas
+        run: npm run schemas:update
 
       - name: Set git config
         run: |
@@ -51,7 +53,7 @@ jobs:
           git config user.email "${{ vars.HC_BOT }}@users.noreply.github.com"
 
       - name: add badges and updated docs
-        run: git add .badges/ ./README.md ./docs/rules
+        run: git add .badges/ ./README.md ./docs/rules ./src/*.schema.json
 
         # NPM pre-publish
       - name: Clean for build
