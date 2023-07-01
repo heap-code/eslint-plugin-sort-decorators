@@ -13,6 +13,14 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 		{
 			code: `
 			class MyClass {
+				public run(parameter?: number) { return 0; }
+			}`,
+			name: "Without any decorator on parameter (with autoFix)",
+			options: [{ autoFix: true }]
+		},
+		{
+			code: `
+			class MyClass {
 				public run(
 					@Single
 					parameter?: number

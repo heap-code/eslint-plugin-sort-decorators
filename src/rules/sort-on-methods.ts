@@ -10,7 +10,12 @@ export const sortOnMethods = createSortRule({
 
 		return autoFix
 			? {
-					MethodDefinition({ decorators }) {
+					MethodDefinition({ decorators, kind }) {
+						if (kind !== "method") {
+							// Ignore if not a method
+							return;
+						}
+
 						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- always defined on method definitions
 						sortRuleListener(context, decorators!, optionsWithDefault);
 					}

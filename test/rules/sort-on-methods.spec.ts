@@ -31,6 +31,15 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 		{
 			code: `
 			class MyClass {
+				@C @A @B
+				public constructor() { return 0; }
+			}`,
+			name: "Decorators on a constructor have no effect (with autoFix)",
+			options: [{ autoFix: true }]
+		},
+		{
+			code: `
+			class MyClass {
 				@A()
 				@B(1)
 				@C({}, "abc")
@@ -75,6 +84,16 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				) { return 0; }
 			}`,
 			name: "Not applied if not on a method"
+		},
+		{
+			code: `
+			class MyClass {
+				public run(
+					@b @a @c
+					parameter?: number
+				) { return 0; }
+			}`,
+			name: "Not applied if not on a method (with autoFix)"
 		}
 	],
 

@@ -11,8 +11,7 @@ export const sortOnClasses = createSortRule({
 		return autoFix
 			? {
 					ClassDeclaration({ decorators }) {
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- always defined on class declarations
-						sortRuleListener(context, decorators!, optionsWithDefault);
+						sortRuleListener(context, decorators ?? [], optionsWithDefault);
 					}
 			  }
 			: {

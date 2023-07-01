@@ -65,6 +65,15 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				protected get accessor() { return 0; }
 			}`,
 			name: "Not applied if not on a property"
+		},
+		{
+			code: `
+			class MyClass {
+				@b @a @c
+				protected get accessor() { return 0; }
+			}`,
+			name: "Not applied if not on a property (with autoFix)",
+			options: [{ autoFix: true }]
 		}
 	],
 

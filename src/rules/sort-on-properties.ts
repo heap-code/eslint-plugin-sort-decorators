@@ -11,8 +11,7 @@ export const sortOnProperties = createSortRule({
 		return autoFix
 			? {
 					PropertyDefinition({ decorators }) {
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- always defined on property definitions
-						sortRuleListener(context, decorators!, optionsWithDefault);
+						sortRuleListener(context, decorators ?? [], optionsWithDefault);
 					}
 			  }
 			: {

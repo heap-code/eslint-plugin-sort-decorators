@@ -59,6 +59,15 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 				public run() { return 0; }
 			}`,
 			name: "Not applied if not on a class"
+		},
+		{
+			code: `
+			class MyClass {
+				@b @a @c
+				public run() { return 0; }
+			}`,
+			name: "Not applied if not on a class (with autoFix)",
+			options: [{ autoFix: true }]
 		}
 	],
 
