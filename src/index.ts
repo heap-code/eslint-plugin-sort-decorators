@@ -1,5 +1,6 @@
 import { TSESLint } from "@typescript-eslint/utils";
 
+import * as configs from "./configs";
 import {
 	SORT_ON_ACCESSORS_NAME,
 	SORT_ON_CLASSES_NAME,
@@ -14,6 +15,10 @@ import {
 } from "./rules";
 
 export default {
+	configs: {
+		recommended: configs.recommended,
+		strict: configs.strict
+	},
 	rules: {
 		[SORT_ON_ACCESSORS_NAME]: sortOnAccessors,
 		[SORT_ON_CLASSES_NAME]: sortOnClasses,

@@ -208,7 +208,7 @@
 			}
 		},
 		{
-			"files": ["jest.config.ts", "src/index.ts"],
+			"files": ["jest.config.ts", "src/index.ts", "src/configs/*.ts"],
 			"rules": {
 				"import/no-default-export": "off"
 			}
