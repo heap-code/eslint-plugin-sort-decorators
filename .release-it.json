@@ -9,6 +9,9 @@
 	"github": {
 		"release": true
 	},
+	"hooks": {
+		"before:init": "npm run docs:update && npm run schemas:update && git add ./README.md ./docs/rules ./src/*.schema.json"
+	},
 	"npm": {
 		"publish": true
 	},
