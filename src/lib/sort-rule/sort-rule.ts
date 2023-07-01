@@ -9,32 +9,44 @@ type SortRule = ESLintUtils.RuleWithMetaAndName<
 	TSESLint.RuleListener
 >;
 
+interface SortRuleMeta
+	extends Omit<SortRule["meta"], "docs" | "fixable" | "messages" | "schema" | "type"> {
+	docs: Omit<SortRule["meta"]["docs"], "recommended">;
+}
+
 /**
  * The information to create a "sort-decorators" rule
  */
 export interface SortRuleWithMetaAndName extends Omit<SortRule, "defaultOptions" | "meta"> {
-	meta: Omit<SortRule["meta"], "fixable" | "messages" | "schema" | "type">;
+	meta: SortRuleMeta;
 }
 
 const sortRuleCreator = ESLintUtils.RuleCreator(name => name);
 
 /**
- * @param ruleMeta the parameter to create a rule
+ * @param rule the parameter to create a rule
  * @returns the created rule
  */
-export function createSortRule(ruleMeta: SortRuleWithMetaAndName) {
+export function createSortRule(rule: SortRuleWithMetaAndName) {
 	return sortRuleCreator({
-		...ruleMeta,
+		...rule,
 		defaultOptions: [{ autoFix: false, caseSensitive: true, direction: "asc" }],
 		meta: {
-			...ruleMeta.meta,
+			schema: {
+				// TODO
+			},
+
+			...rule.meta,
+			docs: {
+				requiresTypeChecking: false,
+
+				...rule.meta.docs,
+				recommended: "warn"
+			},
 			fixable: "code",
 			messages: {
 				"incorrect-order":
-					"Decorator @{{ decorator }} should be placed before @{{ previous }}."
-			},
-			schema: {
-				// TODO
+					"Decorator `@{{ after }}` should be placed before `@{{ previous }}`."
 			},
 			type: "layout"
 		}

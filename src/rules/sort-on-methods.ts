@@ -40,9 +40,7 @@ export const sortOnMethods = createSortRule({
 	meta: {
 		docs: {
 			// TODO
-			description: "",
-			recommended: "warn",
-			requiresTypeChecking: false
+			description: ""
 		}
 	},
 	name: SORT_ON_METHODS_NAME

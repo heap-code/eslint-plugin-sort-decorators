@@ -34,9 +34,7 @@ export const sortOnProperties = createSortRule({
 	meta: {
 		docs: {
 			// TODO
-			description: "",
-			recommended: "warn",
-			requiresTypeChecking: false
+			description: ""
 		}
 	},
 	name: SORT_ON_PROPERTIES_NAME

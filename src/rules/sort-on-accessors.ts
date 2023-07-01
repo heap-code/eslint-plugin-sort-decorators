@@ -57,9 +57,7 @@ export const sortOnAccessors = createSortRule({
 	meta: {
 		docs: {
 			// TODO
-			description: "",
-			recommended: "warn",
-			requiresTypeChecking: false
+			description: ""
 		}
 	},
 	name: SORT_ON_ACCESSORS_NAME

@@ -9,7 +9,7 @@ export interface SortRuleOptions {
 	/**
 	 * If true, enforce properties to be in case-sensitive order.
 	 *
-	 * @default true.
+	 * @default true
 	 */
 	caseSensitive?: boolean;
 	/**

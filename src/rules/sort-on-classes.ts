@@ -34,9 +34,7 @@ export const sortOnClasses = createSortRule({
 	meta: {
 		docs: {
 			// TODO
-			description: "",
-			recommended: "warn",
-			requiresTypeChecking: false
+			description: ""
 		}
 	},
 	name: SORT_ON_CLASSES_NAME
