@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.1...v0.2.2) (2023-07-02)
+
+
+### Bug Fixes
+
+* **ci:** correct build order ([c8dd19a](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/c8dd19a975163f61fd46512ebe61e8d5f01c9f83))
+
 ## [0.2.1](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.0...v0.2.1) (2023-07-02)
 
 
