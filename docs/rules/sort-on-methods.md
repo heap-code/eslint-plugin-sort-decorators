@@ -12,8 +12,8 @@ Sort decorators on methods.
 
 | Name            | Description                                                              | value           |
 |:----------------|:-------------------------------------------------------------------------|:----------------|
-| `autoFix`       | Automatically fix the order.<br/>Decorators order can matter at runtime. | *boolean*       |
-| `caseSensitive` | If true, enforce properties to be in case-sensitive order.               | *boolean*       |
+| `autoFix`       | Automatically fix the order.<br/>Decorators order can matter at runtime. | _boolean_       |
+| `caseSensitive` | If true, enforce properties to be in case-sensitive order.               | _boolean_       |
 | `direction`     | Specify the direction of the ordering.                                   | `asc` \| `desc` |
 
 > Definitive information in the [JSON schema](../../src/lib/sort-rule/sort-rule.options.schema.json).
