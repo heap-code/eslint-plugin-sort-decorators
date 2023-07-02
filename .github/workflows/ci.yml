@@ -26,15 +26,15 @@ jobs:
       - name: Install packages
         run: npm ci
 
+      - name: Build
+        run: npm run build
+
       # No need to have the generated content up-to-date, but its content must be complete
       - name: Verify documentation content
         run: npm run docs:update
 
       - name: Lint
         run: npm run lint
-
-      - name: Build
-        run: npm run build
 
       - name: Tests
         run: npm run test:coverage -- --ci
