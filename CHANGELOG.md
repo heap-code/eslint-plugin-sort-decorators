@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.2.0](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.1.0...v0.2.0) (2023-07-02)
+
+
+### Features
+
+* **preset:** add configuration presets ([6aa5cc3](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/6aa5cc3dfac0d344f7f4b927e3b424043c644299))
+
 # 0.1.0 (2023-07-01)
 
 
