@@ -54,7 +54,24 @@ The different rules can be defined as follows:
 }
 ```
 
-> All these configuration can be done on a `override` section:
+Or simply extends a configuration preset:
+
+```json
+{
+  "extends": ["plugin:sort-decorators/recommended"]
+}
+```
+
+### Configuration presets
+
+| Name                                 | Description                                                    |
+|:-------------------------------------|:---------------------------------------------------------------|
+| `plugin:sort-decorators/recommended` | Enables all rules with a `warn` security level.                |
+| `plugin:sort-decorators/strict`      | Enables all rules with a `error` security level and `autoFix`. |
+
+---
+
+> All this configuration can be done on a `override` section:
 > <https://eslint.org/docs/latest/use/configure/configuration-files#how-do-overrides-work>
 
 ## Rules
@@ -72,3 +89,7 @@ The different rules can be defined as follows:
 | [sort-on-properties](docs/rules/sort-on-properties.md) | Enforces order of properties decorators | 🔧 |
 
 <!-- end auto-generated rules list -->
+
+## Releases
+
+See information about breaking changes and release notes [here](https://github.com/heap-code/eslint-plugin-sort-decorators/blob/HEAD/CHANGELOG.md).
