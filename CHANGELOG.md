@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.0...v0.2.1) (2023-07-02)
+
+
+### Bug Fixes
+
+* **docs:** run lint after documentation generation ([fb51f84](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/fb51f84b2cf7fbbb108413885ea71e79b4ae4117))
+
 # [0.2.0](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.1.0...v0.2.0) (2023-07-02)
 
 
