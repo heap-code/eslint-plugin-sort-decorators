@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.2...v0.2.3) (2023-07-03)
+
+
+### Bug Fixes
+
+* **on-methods:** correct `autofix` on methods without decorator ([65cdeb4](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/65cdeb40eb0b2bed296943a8a67e284bd34543d4))
+
 ## [0.2.2](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.1...v0.2.2) (2023-07-02)
 
 
