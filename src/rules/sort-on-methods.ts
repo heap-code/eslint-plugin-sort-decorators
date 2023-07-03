@@ -16,8 +16,7 @@ export const sortOnMethods = createSortRule({
 							return;
 						}
 
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- always defined on method definitions
-						sortRuleListener(context, decorators!, optionsWithDefault);
+						sortRuleListener(context, decorators ?? [], optionsWithDefault);
 					}
 			  }
 			: {

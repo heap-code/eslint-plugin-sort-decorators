@@ -93,7 +93,8 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Not applied if not on a method (with autoFix)"
+			name: "Not applied if not on a method (with autoFix)",
+			options: [{ autoFix: true }]
 		}
 	],
 
