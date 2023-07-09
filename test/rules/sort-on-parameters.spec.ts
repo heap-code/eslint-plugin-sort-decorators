@@ -46,9 +46,33 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A
 					@B @C
 					parameter?: number
-				) { return 0; }
+				) { }
 			}`,
 			name: "Basic decorators ordering (on a constructor)"
+		},
+		{
+			code: `
+			class MyClass {
+				public constructor(
+					@A @B @C
+					public readonly publicRO?: number,
+					@A @B @C
+					protected readonly protectedRO?: number,
+					@A @B @C
+					private readonly privateRO?: number,
+
+					@A @B @C
+					readonly ro?: number,
+
+					@A @B @C
+					public publicRW?: number,
+					@A @B @C
+					protected protectedRW?: number,
+					@A @B @C
+					private privateRW?: number,
+				) { }
+			}`,
+			name: "Basic decorators ordering (on a constructor with accessibility modifier)"
 		},
 		{
 			code: `
@@ -146,7 +170,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@B
 					@A
 					parameter?: number
-				) { return 0; }
+				) { }
 			}`,
 			errors: [{ messageId: "incorrect-order" }],
 			name: "Fix simple decorators ordering (on a constructor)",
@@ -157,7 +181,54 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A
 					@B
 					parameter?: number
-				) { return 0; }
+				) { }
+			}`
+		},
+		{
+			code: `
+			class MyClass {
+				public constructor(
+					@C @A @B
+					public readonly publicRO?: number,
+					@C @A @B
+					protected readonly protectedRO?: number,
+					@C @A @B
+					private readonly privateRO?: number,
+
+					@B @A @C
+					readonly ro?: number,
+
+					@C @A @B
+					public publicRW?: number,
+					@C @A @B
+					protected protectedRW?: number,
+					@C @A @B
+					private privateRW?: number,
+				) { }
+			}`,
+			errors: Array(7).fill({ messageId: "incorrect-order" }),
+			name: "Fix basic decorators ordering (on a constructor with accessibility modifier)",
+			options: [{ autoFix: true }],
+			output: `
+			class MyClass {
+				public constructor(
+					@A @B @C
+					public readonly publicRO?: number,
+					@A @B @C
+					protected readonly protectedRO?: number,
+					@A @B @C
+					private readonly privateRO?: number,
+
+					@A @B @C
+					readonly ro?: number,
+
+					@A @B @C
+					public publicRW?: number,
+					@A @B @C
+					protected protectedRW?: number,
+					@A @B @C
+					private privateRW?: number,
+				) { }
 			}`
 		},
 		{
