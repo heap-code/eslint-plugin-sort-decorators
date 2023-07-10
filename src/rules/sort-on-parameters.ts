@@ -14,8 +14,9 @@ export const sortOnParameters = createSortRule({
 
 			// Only get the decorated node, if it is on a method
 			if (
-				parent?.type === AST_NODE_TYPES.Identifier &&
-				parent.parent?.type === AST_NODE_TYPES.FunctionExpression
+				parent?.type === AST_NODE_TYPES.TSParameterProperty ||
+				(parent?.type === AST_NODE_TYPES.Identifier &&
+					parent.parent?.type === AST_NODE_TYPES.FunctionExpression)
 			) {
 				return parent;
 			}
