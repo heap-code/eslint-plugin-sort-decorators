@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.3...v0.2.4) (2023-07-10)
+
+
+### Bug Fixes
+
+* **on-parameters:** get the node of a decorator when parameters have accessibility modifiers ([a9ca467](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/a9ca467fc2737e390e07e4af1cf69d87cc10439d))
+
 ## [0.2.3](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.2...v0.2.3) (2023-07-03)
 
 
