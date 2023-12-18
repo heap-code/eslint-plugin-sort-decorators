@@ -8,6 +8,10 @@
 			"groupName": "Linting packages",
 			"groupSlug": "linting",
 			"matchPackageNames": ["@cspell/eslint-plugin", "@shopify/eslint-plugin"]
+		},
+		{
+			"automerge": true,
+			"matchDepTypes": ["*"]
 		}
 	],
 	"rebaseWhen": "behind-base-branch",
