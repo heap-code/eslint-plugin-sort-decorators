@@ -7,8 +7,8 @@ on:
 
 jobs:
   job:
-    # Ignore the heap-code bot commits
-    if: ${{ github.actor != vars.HC_BOT }}
+    # Ignore the heap-code bot commits + and devDependencies # TODO: better
+    if: ${{ github.actor != vars.HC_BOT && !(contains(github.event.head_commit.message, 'chore(deps):')) }}
 
     runs-on: ubuntu-latest
     env:
@@ -60,5 +60,4 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Release and publish
-        if: ${{ ! (github.event.pull_request.merged && startsWith(github.event.pull_request.title, 'chore(deps):')) }}
         run: npx release-it --ci --no-git.requireCleanWorkingDir
