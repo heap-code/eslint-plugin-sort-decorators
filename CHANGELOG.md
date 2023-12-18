@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.5](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.4...v0.2.5) (2023-12-18)
+
+
+### Bug Fixes
+
+* remove dependency so it can be used with `@typescript-eslint/parser@^6` ([73713ef](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/73713efb6e501d3a661ca37b60b42afd725cf4e7))
+
 ## [0.2.4](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.3...v0.2.4) (2023-07-10)
 
 
