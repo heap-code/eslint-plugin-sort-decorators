@@ -8,7 +8,7 @@ on:
 jobs:
   job:
     # Ignore the heap-code bot commits
-    if: ${{ github.actor != vars.HC_BOT }}
+    if: ${{ github.actor != vars.HC_BOT && !(github.event.pull_request.merged && startsWith(github.event.pull_request.title, 'chore(deps):')) }}
 
     runs-on: ubuntu-latest
     env:
@@ -60,5 +60,4 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Release and publish
-        if: ${{ ! (github.event.pull_request.merged && startsWith(github.event.pull_request.title, 'chore(deps):')) }}
         run: npx release-it --ci --no-git.requireCleanWorkingDir

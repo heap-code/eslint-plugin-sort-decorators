@@ -11,7 +11,7 @@
 		},
 		{
 			"automerge": true,
-			"matchDepTypes": ["*"]
+			"packagePatterns": ["*"]
 		}
 	],
 	"rebaseWhen": "behind-base-branch",
