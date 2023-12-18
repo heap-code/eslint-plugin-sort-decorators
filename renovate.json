@@ -1,0 +1,19 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", "group:definitelyTyped"],
+	"labels": ["dependencies", "renovate"],
+	"packageRules": [
+		{
+			"extends": ["packages:eslint", "packages:stylelint"],
+			"groupName": "Linting packages",
+			"groupSlug": "linting",
+			"matchPackageNames": ["@cspell/eslint-plugin", "@shopify/eslint-plugin"]
+		},
+		{
+			"automerge": true,
+			"matchDepTypes": ["*"]
+		}
+	],
+	"rebaseWhen": "behind-base-branch",
+	"unicodeEmoji": true
+}
