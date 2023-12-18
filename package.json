@@ -8,9 +8,7 @@
 			"path": "./node_modules/cz-conventional-changelog"
 		}
 	},
-	"dependencies": {
-		"@typescript-eslint/utils": "^5.0.0"
-	},
+	"dependencies": {},
 	"description": "An ESLint plugin to sort decorators",
 	"devDependencies": {
 		"@cspell/eslint-plugin": "^6.31.1",
@@ -21,6 +19,7 @@
 		"@types/jest": "^29.5.2",
 		"@typescript-eslint/eslint-plugin": "^5.60.1",
 		"@typescript-eslint/parser": "^5.60.1",
+		"@typescript-eslint/utils": "^5.60.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
@@ -63,7 +62,7 @@
 	"main": "./dist/index.js",
 	"name": "eslint-plugin-sort-decorators",
 	"peerDependencies": {
-		"@typescript-eslint/parser": "^5.0.0",
+		"@typescript-eslint/parser": "^5.0.0 || ^6.0.0",
 		"eslint": "^6.0.0 || ^7.0.0 || ^8.0.0"
 	},
 	"publishConfig": {
