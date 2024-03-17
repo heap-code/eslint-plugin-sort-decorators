@@ -18,7 +18,7 @@ export const sortOnMethods = createSortRule({
 
 						sortRuleListener(context, decorators ?? [], optionsWithDefault);
 					}
-			  }
+				}
 			: {
 					Decorator(node) {
 						const { parent } = node;
@@ -34,7 +34,7 @@ export const sortOnMethods = createSortRule({
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
 					}
-			  };
+				};
 	},
 	meta: {
 		docs: {

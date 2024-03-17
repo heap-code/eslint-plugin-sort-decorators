@@ -13,7 +13,7 @@ export const sortOnClasses = createSortRule({
 					ClassDeclaration({ decorators }) {
 						sortRuleListener(context, decorators ?? [], optionsWithDefault);
 					}
-			  }
+				}
 			: {
 					Decorator(node) {
 						const { parent } = node;
@@ -29,7 +29,7 @@ export const sortOnClasses = createSortRule({
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
 					}
-			  };
+				};
 	},
 	meta: {
 		docs: {

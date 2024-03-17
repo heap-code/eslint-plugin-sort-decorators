@@ -59,12 +59,12 @@ export function sortRuleListener(
 			const textAfter =
 				i === sorted.length - 1
 					? // If it's the last item, there's no text after to append.
-					  ""
+						""
 					: // Otherwise, we need to grab the text after the original node.
-					  sourceText.slice(
+						sourceText.slice(
 							decorators[i].node.range[1], // End index of the current node .
 							decorators[i + 1].node.range[0] // Start index of the next node.
-					  );
+						);
 
 			return sourceCode.getText(child) + textAfter;
 		});
