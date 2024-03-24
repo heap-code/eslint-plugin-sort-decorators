@@ -2,6 +2,12 @@
 	"arrowParens": "avoid",
 	"overrides": [
 		{
+			"files": "*.json",
+			"options": {
+				"trailingComma": "none"
+			}
+		},
+		{
 			"files": "*.md",
 			"options": {
 				"parser": "markdown"
@@ -18,6 +24,6 @@
 	"semi": true,
 	"singleQuote": false,
 	"tabWidth": 4,
-	"trailingComma": "none",
+	"trailingComma": "all",
 	"useTabs": true
 }

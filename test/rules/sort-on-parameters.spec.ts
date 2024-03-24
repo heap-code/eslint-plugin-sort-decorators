@@ -8,7 +8,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 			class MyClass {
 				public run(parameter?: number) { return 0; }
 			}`,
-			name: "Without any decorator on parameter"
+			name: "Without any decorator on parameter",
 		},
 		{
 			code: `
@@ -16,7 +16,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				public run(parameter?: number) { return 0; }
 			}`,
 			name: "Without any decorator on parameter (with autoFix)",
-			options: [{ autoFix: true }]
+			options: [{ autoFix: true }],
 		},
 		{
 			code: `
@@ -26,7 +26,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Single decorator on parameter"
+			name: "Single decorator on parameter",
 		},
 		{
 			code: `
@@ -37,7 +37,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Basic decorators ordering"
+			name: "Basic decorators ordering",
 		},
 		{
 			code: `
@@ -48,7 +48,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { }
 			}`,
-			name: "Basic decorators ordering (on a constructor)"
+			name: "Basic decorators ordering (on a constructor)",
 		},
 		{
 			code: `
@@ -72,7 +72,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					private privateRW?: number,
 				) { }
 			}`,
-			name: "Basic decorators ordering (on a constructor with accessibility modifier)"
+			name: "Basic decorators ordering (on a constructor with accessibility modifier)",
 		},
 		{
 			code: `
@@ -84,7 +84,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Basic decorator factories ordering"
+			name: "Basic decorator factories ordering",
 		},
 		{
 			code: `
@@ -95,7 +95,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Decorators mixed with factories"
+			name: "Decorators mixed with factories",
 		},
 		{
 			code: `
@@ -107,7 +107,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				) { return 0; }
 			}`,
 			name: "Case sensitive",
-			options: [{ caseSensitive: true }]
+			options: [{ caseSensitive: true }],
 		},
 		{
 			code: `
@@ -118,7 +118,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				) { return 0; }
 			}`,
 			name: "Case insensitive",
-			options: [{ caseSensitive: false }]
+			options: [{ caseSensitive: false }],
 		},
 		{
 			code: `
@@ -127,7 +127,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				@b @a @c
 				public property?: number;
 			}`,
-			name: "Not applied if not on a parameter"
+			name: "Not applied if not on a parameter",
 		},
 		{
 			code: `
@@ -137,8 +137,8 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				public property?: number;
 			}`,
 			name: "Not applied if not on a parameter (with autoFix)",
-			options: [{ autoFix: true }]
-		}
+			options: [{ autoFix: true }],
+		},
 	],
 
 	invalid: [
@@ -161,7 +161,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@B
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -182,7 +182,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@B
 					parameter?: number
 				) { }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -229,7 +229,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A @B @C
 					private privateRW?: number,
 				) { }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -250,7 +250,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@C({}, "abc")
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -269,7 +269,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A() @B
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -290,7 +290,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@abd()
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -309,7 +309,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@abd() @aCc
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -328,7 +328,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A @B @C @D
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -339,7 +339,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 				) { return 0; }
 			}`,
 			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
-			name: "Fix with multiple decorators (2 errors detected)"
+			name: "Fix with multiple decorators (2 errors detected)",
 		},
 		{
 			code: `
@@ -358,7 +358,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A @B @C @D
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -371,9 +371,9 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 			errors: [
 				{ messageId: "incorrect-order" },
 				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
+				{ messageId: "incorrect-order" },
 			],
-			name: "Reverse order"
+			name: "Reverse order",
 		},
 		{
 			code: `
@@ -392,7 +392,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@A @B @C @D
 					parameter?: number
 				) { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -411,7 +411,7 @@ tester.run(SORT_ON_PARAMETERS_NAME, sortOnParameters, {
 					@D @C @B @A
 					parameter?: number
 				) { return 0; }
-			}`
-		}
-	]
+			}`,
+		},
+	],
 });

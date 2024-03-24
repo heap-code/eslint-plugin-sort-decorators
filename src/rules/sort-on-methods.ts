@@ -1,4 +1,4 @@
-import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 
 import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 
@@ -17,8 +17,8 @@ export const sortOnMethods = createSortRule({
 						}
 
 						sortRuleListener(context, decorators ?? [], optionsWithDefault);
-					}
-			  }
+					},
+				}
 			: {
 					Decorator(node) {
 						const { parent } = node;
@@ -27,19 +27,18 @@ export const sortOnMethods = createSortRule({
 							return;
 						}
 
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- the current node comes from there
-						const decorators = parent.decorators!;
+						const decorators = parent.decorators;
 
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
-					}
-			  };
+					},
+				};
 	},
 	meta: {
 		docs: {
-			description: "Enforces order of methods decorators"
-		}
+			description: "Enforces order of methods decorators",
+		},
 	},
-	name: SORT_ON_METHODS_NAME
+	name: SORT_ON_METHODS_NAME,
 });

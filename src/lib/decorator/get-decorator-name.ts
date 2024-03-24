@@ -1,17 +1,16 @@
-import { LeftHandSideExpression } from "@typescript-eslint/types/dist/generated/ast-spec";
-import { AST_NODE_TYPES, TSESTree } from "@typescript-eslint/utils";
+import { TSESTree } from "@typescript-eslint/utils";
 
 /**
  * @param decorator the decorator node to get the name from
  * @returns the name of the given decorator
  */
 export function getDecoratorName(decorator: TSESTree.Decorator): string {
-	const getName = (expression: LeftHandSideExpression): string => {
+	const getName = (expression: typeof decorator.expression): string => {
 		switch (expression.type) {
-			case AST_NODE_TYPES.CallExpression:
+			case TSESTree.AST_NODE_TYPES.CallExpression:
 				return getName(expression.callee);
 
-			case AST_NODE_TYPES.Identifier:
+			case TSESTree.AST_NODE_TYPES.Identifier:
 				return expression.name;
 		}
 

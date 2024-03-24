@@ -14,7 +14,7 @@ import { getDecoratorName } from "../decorator";
 export function sortRuleListener(
 	context: TSESLint.RuleContext<SortRuleMessageIds, [SortRuleOptions]>,
 	decorators: TSESTree.Decorator[],
-	options: SortRuleOptions
+	options: SortRuleOptions,
 ) {
 	const { autoFix, caseSensitive, direction } = options;
 
@@ -40,14 +40,14 @@ export function sortRuleListener(
 	// Get the decorator names only once
 	const decoratorsWithName = decorators.map(decorator => ({
 		name: getName(decorator),
-		node: decorator
+		node: decorator,
 	}));
 
 	const createFix = (fixer: TSESLint.RuleFixer, decorators: typeof decoratorsWithName) => {
 		// Chunk of code strongly inspired from:
 		// https://github.com/mthadley/eslint-plugin-sort-destructure-keys/blob/ccb0d52cb48a55668aff209e1cec4197a16bd23b/lib/rules/sort-destructure-keys.js#L158
 
-		const sourceCode = context.getSourceCode();
+		const { sourceCode } = context;
 		const sourceText = sourceCode.getText();
 
 		const sorted = decorators
@@ -59,19 +59,19 @@ export function sortRuleListener(
 			const textAfter =
 				i === sorted.length - 1
 					? // If it's the last item, there's no text after to append.
-					  ""
+						""
 					: // Otherwise, we need to grab the text after the original node.
-					  sourceText.slice(
+						sourceText.slice(
 							decorators[i].node.range[1], // End index of the current node .
-							decorators[i + 1].node.range[0] // Start index of the next node.
-					  );
+							decorators[i + 1].node.range[0], // Start index of the next node.
+						);
 
 			return sourceCode.getText(child) + textAfter;
 		});
 
 		return fixer.replaceTextRange(
 			[decorators[0].node.range[0], decorators[decorators.length - 1].node.range[1]],
-			newText.join("")
+			newText.join(""),
 		);
 	};
 
@@ -88,11 +88,11 @@ export function sortRuleListener(
 				context.report({
 					data: {
 						after: name,
-						previous: currentName
+						previous: currentName,
 					},
 					fix: autoFix ? fixer => createFix(fixer, decorators) : undefined,
 					messageId: "incorrect-order",
-					node
+					node,
 				});
 
 				return;

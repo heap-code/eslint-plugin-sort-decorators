@@ -1,14 +1,10 @@
-import { ESLintUtils, TSESLint } from "@typescript-eslint/utils";
+import { ESLintUtils } from "@typescript-eslint/utils";
 
 import { SortRuleMessageIds } from "./sort-rule.message-ids";
 import { SortRuleOptions } from "./sort-rule.options";
 import schema from "./sort-rule.options.schema.json";
 
-type SortRule = ESLintUtils.RuleWithMetaAndName<
-	[SortRuleOptions],
-	SortRuleMessageIds,
-	TSESLint.RuleListener
->;
+type SortRule = ESLintUtils.RuleWithMetaAndName<[SortRuleOptions], SortRuleMessageIds>;
 
 interface SortRuleMeta
 	extends Omit<SortRule["meta"], "docs" | "fixable" | "messages" | "schema" | "type"> {
@@ -33,21 +29,21 @@ export function createSortRule(rule: SortRuleWithMetaAndName) {
 		...rule,
 		defaultOptions: [{ autoFix: false, caseSensitive: true, direction: "asc" }],
 		meta: {
-			schema: [schema],
+			schema: [schema as never],
 
 			...rule.meta,
 			docs: {
 				requiresTypeChecking: false,
 
 				...rule.meta.docs,
-				recommended: "warn"
+				recommended: "recommended",
 			},
 			fixable: "code",
 			messages: {
 				"incorrect-order":
-					"Expected decorators to be in sorted order. `@{{ after }}` should be before `@{{ previous }}`."
+					"Expected decorators to be in sorted order. `@{{ after }}` should be before `@{{ previous }}`.",
 			},
-			type: "layout"
-		}
+			type: "layout",
+		},
 	});
 }

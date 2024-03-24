@@ -1,5 +1,5 @@
 import { parse } from "@typescript-eslint/parser";
-import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 
 import { getDecoratorName } from "./get-decorator-name";
 
@@ -8,7 +8,7 @@ describe("getDecoratorName", () => {
 		const [classA] = parse(`@${decorator} class A {}`).body;
 
 		if (classA.type === AST_NODE_TYPES.ClassDeclaration) {
-			return classA.decorators![0];
+			return classA.decorators[0];
 		}
 
 		throw new Error("Decorator is wrongly set");
@@ -61,13 +61,15 @@ describe("getDecoratorName", () => {
 				expression: {
 					elements: [],
 					loc: { end: { column: 0, line: 0 }, start: { column: 0, line: 0 } },
+					parent: null as never,
 					range: [0, 0],
-					type: AST_NODE_TYPES.ArrayPattern
+					type: AST_NODE_TYPES.ArrayExpression,
 				},
 				loc: { end: { column: 0, line: 0 }, start: { column: 0, line: 0 } },
+				parent: null as never,
 				range: [0, 0],
-				type: AST_NODE_TYPES.Decorator
-			})
+				type: AST_NODE_TYPES.Decorator,
+			}),
 		).toThrow();
 	});
 });

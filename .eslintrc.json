@@ -45,7 +45,13 @@
 			}
 		},
 		{
-			"files": [".eslintrc.json", ".prettierrc.json", "tsconfig.json", "tsconfig.*.json"],
+			"files": [
+				".eslintrc.json",
+				".prettierrc.json",
+				"tsconfig.json",
+				"tsconfig.*.json",
+				".vscode/*.json"
+			],
 			"rules": {
 				/* OK for `rc` files */
 				"jsonc/no-comments": "off"
@@ -175,12 +181,6 @@
 					}
 				],
 				"@typescript-eslint/no-for-in-array": "error",
-				"@typescript-eslint/no-implicit-any-catch": [
-					"error",
-					{
-						"allowExplicitAny": false
-					}
-				],
 				"@typescript-eslint/no-inferrable-types": "error",
 				"@typescript-eslint/no-misused-new": "error",
 				"@typescript-eslint/no-non-null-asserted-optional-chain": "error",
@@ -196,7 +196,6 @@
 				"@typescript-eslint/sort-type-constituents": "error",
 				"@typescript-eslint/type-annotation-spacing": "error",
 				"etc/no-assign-mutated-array": "error",
-				"etc/no-deprecated": "warn",
 				"etc/no-implicit-any-catch": [
 					"error",
 					{
@@ -229,7 +228,7 @@
 			"env": {
 				"jest": true
 			},
-			"extends": ["plugin:jest/recommended", "plugin:jest/style", "plugin:jest-extended/all"],
+			"extends": ["plugin:jest/recommended", "plugin:jest/style"],
 			"files": ["*.spec.ts", "*.spec.js"],
 			"plugins": ["jest"],
 			"rules": {
@@ -285,31 +284,22 @@
 		}
 	],
 	"plugins": [
-		"@cspell",
 		"@shopify",
 		"eslint-plugin-import",
 		"etc",
-		"jest-extended",
 		"prettier",
 		"sonarjs",
 		"sort-destructure-keys",
+		"sort-keys-plus",
 		"typescript-sort-keys",
 		"unicorn",
 		"unused-imports"
 	],
 	"root": true,
 	"rules": {
-		"@cspell/spellchecker": [
-			"warn",
-			{
-				"autoFix": true,
-				"customWordListFile": "./tools/cspell/words.txt"
-			}
-		],
 		"@shopify/no-useless-computed-properties": "error",
 		"@shopify/prefer-early-return": "error",
 		"arrow-parens": "off",
-		"comma-dangle": "error",
 		"curly": ["error", "all"],
 		"eol-last": "error",
 		"eqeqeq": "error",
@@ -407,6 +397,13 @@
 		"semi": ["error", "always"],
 		"sort-destructure-keys/sort-destructure-keys": "error",
 		"sort-keys": [
+			"error",
+			"asc",
+			{
+				"allowLineSeparatedGroups": true
+			}
+		],
+		"sort-keys-plus/sort-keys": [
 			"error",
 			"asc",
 			{

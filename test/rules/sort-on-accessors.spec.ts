@@ -9,7 +9,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@Single
 				public get accessor() { return 0; }
 			}`,
-			name: "Single decorator on accessor"
+			name: "Single decorator on accessor",
 		},
 		{
 			code: `
@@ -18,7 +18,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@B @C
 				public get accessor() { return 0; }
 			}`,
-			name: "Basic decorators ordering"
+			name: "Basic decorators ordering",
 		},
 		{
 			code: `
@@ -28,7 +28,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@C({}, "abc")
 				public get accessor() { return 0; }
 			}`,
-			name: "Basic decorator factories ordering"
+			name: "Basic decorator factories ordering",
 		},
 		{
 			code: `
@@ -37,7 +37,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@C()() @D
 				public get accessor() { return 0; }
 			}`,
-			name: "Decorators mixed with factories"
+			name: "Decorators mixed with factories",
 		},
 		{
 			code: `
@@ -47,7 +47,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				public get accessor() { return 0; }
 			}`,
 			name: "Case sensitive",
-			options: [{ caseSensitive: true }]
+			options: [{ caseSensitive: true }],
 		},
 		{
 			code: `
@@ -56,7 +56,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				public get accessor() { return 0; }
 			}`,
 			name: "Case insensitive",
-			options: [{ caseSensitive: false }]
+			options: [{ caseSensitive: false }],
 		},
 		{
 			code: `
@@ -65,7 +65,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@b @a @c
 				public property?: number;
 			}`,
-			name: "Not applied if not on an accessor"
+			name: "Not applied if not on an accessor",
 		},
 		{
 			code: `
@@ -75,8 +75,8 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				public property?: number;
 			}`,
 			name: "Not applied if not on an accessor (with autoFix)",
-			options: [{ autoFix: true }]
-		}
+			options: [{ autoFix: true }],
+		},
 	],
 
 	invalid: [
@@ -95,7 +95,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@A
 				@B
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -112,7 +112,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@A()
 				@C({}, "abc")
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -127,7 +127,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@A() @B
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -144,7 +144,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				@aCc
 				@abd()
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -159,7 +159,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@abd() @aCc
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -174,7 +174,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@A @B @C @D
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -183,7 +183,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 				public get accessor() { return 0; }
 			}`,
 			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
-			name: "Fix with multiple decorators (2 errors detected)"
+			name: "Fix with multiple decorators (2 errors detected)",
 		},
 		{
 			code: `
@@ -198,7 +198,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@A @B @C @D
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -209,9 +209,9 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			errors: [
 				{ messageId: "incorrect-order" },
 				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
+				{ messageId: "incorrect-order" },
 			],
-			name: "Reverse order"
+			name: "Reverse order",
 		},
 		{
 			code: `
@@ -226,7 +226,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@A @B @C @D
 				public get accessor() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -241,7 +241,7 @@ tester.run(SORT_ON_ACCESSORS_NAME, sortOnAccessors, {
 			class MyClass {
 				@D @C @B @A
 				public get accessor() { return 0; }
-			}`
-		}
-	]
+			}`,
+		},
+	],
 });
