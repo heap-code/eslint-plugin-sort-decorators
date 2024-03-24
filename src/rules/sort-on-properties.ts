@@ -1,4 +1,4 @@
-import { AST_NODE_TYPES } from "@typescript-eslint/types";
+import { AST_NODE_TYPES } from "@typescript-eslint/utils";
 
 import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 
@@ -22,8 +22,7 @@ export const sortOnProperties = createSortRule({
 							return;
 						}
 
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- the current node comes from there
-						const decorators = parent.decorators!;
+						const decorators = parent.decorators;
 
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);

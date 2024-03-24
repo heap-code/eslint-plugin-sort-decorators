@@ -1,5 +1,4 @@
-import { AST_NODE_TYPES } from "@typescript-eslint/types";
-import { TSESTree } from "@typescript-eslint/utils";
+import { AST_NODE_TYPES, TSESTree } from "@typescript-eslint/utils";
 
 import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 

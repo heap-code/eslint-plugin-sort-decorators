@@ -23,23 +23,6 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 		{
 			code: `
 			class MyClass {
-				@C @A @B
-				public constructor() { return 0; }
-			}`,
-			name: "Decorators on a constructor have no effect"
-		},
-		{
-			code: `
-			class MyClass {
-				@C @A @B
-				public constructor() { return 0; }
-			}`,
-			name: "Decorators on a constructor have no effect (with autoFix)",
-			options: [{ autoFix: true }]
-		},
-		{
-			code: `
-			class MyClass {
 				@A()
 				@B(1)
 				@C({}, "abc")

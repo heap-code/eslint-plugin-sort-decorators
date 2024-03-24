@@ -47,7 +47,7 @@ export function sortRuleListener(
 		// Chunk of code strongly inspired from:
 		// https://github.com/mthadley/eslint-plugin-sort-destructure-keys/blob/ccb0d52cb48a55668aff209e1cec4197a16bd23b/lib/rules/sort-destructure-keys.js#L158
 
-		const sourceCode = context.getSourceCode();
+		const { sourceCode } = context;
 		const sourceText = sourceCode.getText();
 
 		const sorted = decorators

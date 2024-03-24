@@ -45,7 +45,13 @@
 			}
 		},
 		{
-			"files": [".eslintrc.json", ".prettierrc.json", "tsconfig.json", "tsconfig.*.json"],
+			"files": [
+				".eslintrc.json",
+				".prettierrc.json",
+				"tsconfig.json",
+				"tsconfig.*.json",
+				".vscode/*.json"
+			],
 			"rules": {
 				/* OK for `rc` files */
 				"jsonc/no-comments": "off"
@@ -190,7 +196,6 @@
 				"@typescript-eslint/sort-type-constituents": "error",
 				"@typescript-eslint/type-annotation-spacing": "error",
 				"etc/no-assign-mutated-array": "error",
-				"etc/no-deprecated": "warn",
 				"etc/no-implicit-any-catch": [
 					"error",
 					{
@@ -223,7 +228,7 @@
 			"env": {
 				"jest": true
 			},
-			"extends": ["plugin:jest/recommended", "plugin:jest/style", "plugin:jest-extended/all"],
+			"extends": ["plugin:jest/recommended", "plugin:jest/style"],
 			"files": ["*.spec.ts", "*.spec.js"],
 			"plugins": ["jest"],
 			"rules": {
@@ -279,11 +284,9 @@
 		}
 	],
 	"plugins": [
-		"@cspell",
 		"@shopify",
 		"eslint-plugin-import",
 		"etc",
-		"jest-extended",
 		"prettier",
 		"sonarjs",
 		"sort-destructure-keys",
@@ -293,13 +296,6 @@
 	],
 	"root": true,
 	"rules": {
-		"@cspell/spellchecker": [
-			"warn",
-			{
-				"autoFix": true,
-				"customWordListFile": "./tools/cspell/words.txt"
-			}
-		],
 		"@shopify/no-useless-computed-properties": "error",
 		"@shopify/prefer-early-return": "error",
 		"arrow-parens": "off",
