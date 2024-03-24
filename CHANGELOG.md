@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.6](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.5...v0.2.6) (2024-03-24)
+
+
+### Bug Fixes
+
+* **deps:** bump `@typescript-eslint/parser` peer to `^7.0.0` ([2fbac11](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/2fbac1121c33e465c7be0192972ba0bf793fe2d4))
+
 ## [0.2.5](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.4...v0.2.5) (2023-12-18)
 
 
