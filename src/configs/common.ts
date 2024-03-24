@@ -7,7 +7,7 @@ import {
 	SORT_ON_CLASSES_NAME,
 	SORT_ON_METHODS_NAME,
 	SORT_ON_PARAMETERS_NAME,
-	SORT_ON_PROPERTIES_NAME
+	SORT_ON_PROPERTIES_NAME,
 } from "../rules";
 
 export const PLUGIN_NAME = "sort-decorators";
@@ -25,7 +25,7 @@ export function createConfiguration(ruleEntry: Linter.RuleEntry<[SortRuleOptions
 			[`${PLUGIN_NAME}/${SORT_ON_CLASSES_NAME}`]: ruleEntry,
 			[`${PLUGIN_NAME}/${SORT_ON_METHODS_NAME}`]: ruleEntry,
 			[`${PLUGIN_NAME}/${SORT_ON_PARAMETERS_NAME}`]: ruleEntry,
-			[`${PLUGIN_NAME}/${SORT_ON_PROPERTIES_NAME}`]: ruleEntry
-		}
+			[`${PLUGIN_NAME}/${SORT_ON_PROPERTIES_NAME}`]: ruleEntry,
+		},
 	} as const satisfies TSESLint.Linter.ConfigType;
 }

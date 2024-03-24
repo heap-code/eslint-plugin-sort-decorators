@@ -9,7 +9,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@Single
 				public run() { return 0; }
 			}`,
-			name: "Single decorator on accessor"
+			name: "Single decorator on accessor",
 		},
 		{
 			code: `
@@ -18,7 +18,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@B @C
 				public run() { return 0; }
 			}`,
-			name: "Basic decorators ordering"
+			name: "Basic decorators ordering",
 		},
 		{
 			code: `
@@ -28,7 +28,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@C({}, "abc")
 				public run() { return 0; }
 			}`,
-			name: "Basic decorator factories ordering"
+			name: "Basic decorator factories ordering",
 		},
 		{
 			code: `
@@ -37,7 +37,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@C()() @D
 				public run() { return 0; }
 			}`,
-			name: "Decorators mixed with factories"
+			name: "Decorators mixed with factories",
 		},
 		{
 			code: `
@@ -47,7 +47,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				public run() { return 0; }
 			}`,
 			name: "Case sensitive",
-			options: [{ caseSensitive: true }]
+			options: [{ caseSensitive: true }],
 		},
 		{
 			code: `
@@ -56,7 +56,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				public run() { return 0; }
 			}`,
 			name: "Case insensitive",
-			options: [{ caseSensitive: false }]
+			options: [{ caseSensitive: false }],
 		},
 		{
 			code: `
@@ -66,7 +66,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 					parameter?: number
 				) { return 0; }
 			}`,
-			name: "Not applied if not on a method"
+			name: "Not applied if not on a method",
 		},
 		{
 			code: `
@@ -77,8 +77,8 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				) { return 0; }
 			}`,
 			name: "Not applied if not on a method (with autoFix)",
-			options: [{ autoFix: true }]
-		}
+			options: [{ autoFix: true }],
+		},
 	],
 
 	invalid: [
@@ -97,7 +97,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@A
 				@B
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -114,7 +114,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@A()
 				@C({}, "abc")
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -129,7 +129,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@A() @B
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -146,7 +146,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				@aCc
 				@abd()
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -161,7 +161,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@abd() @aCc
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -176,7 +176,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@A @B @C @D
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -185,7 +185,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 				public run() { return 0; }
 			}`,
 			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
-			name: "With multiple decorators (2 errors detected)"
+			name: "With multiple decorators (2 errors detected)",
 		},
 		{
 			code: `
@@ -200,7 +200,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@A @B @C @D
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -211,9 +211,9 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			errors: [
 				{ messageId: "incorrect-order" },
 				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
+				{ messageId: "incorrect-order" },
 			],
-			name: "Reverse order"
+			name: "Reverse order",
 		},
 		{
 			code: `
@@ -228,7 +228,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@A @B @C @D
 				public run() { return 0; }
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -243,7 +243,7 @@ tester.run(SORT_ON_METHODS_NAME, sortOnMethods, {
 			class MyClass {
 				@D @C @B @A
 				public run() { return 0; }
-			}`
-		}
-	]
+			}`,
+		},
+	],
 });

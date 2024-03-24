@@ -12,7 +12,7 @@ export const sortOnProperties = createSortRule({
 			? {
 					PropertyDefinition({ decorators }) {
 						sortRuleListener(context, decorators ?? [], optionsWithDefault);
-					}
+					},
 				}
 			: {
 					Decorator(node) {
@@ -27,13 +27,13 @@ export const sortOnProperties = createSortRule({
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
-					}
+					},
 				};
 	},
 	meta: {
 		docs: {
-			description: "Enforces order of properties decorators"
-		}
+			description: "Enforces order of properties decorators",
+		},
 	},
-	name: SORT_ON_PROPERTIES_NAME
+	name: SORT_ON_PROPERTIES_NAME,
 });

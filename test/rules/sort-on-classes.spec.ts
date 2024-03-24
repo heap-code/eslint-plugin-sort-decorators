@@ -7,14 +7,14 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			code: `
 			@Single
 			class MyClass {}`,
-			name: "Single decorator on accessor"
+			name: "Single decorator on accessor",
 		},
 		{
 			code: `
 			@A
 			@B @C
 			class MyClass {}`,
-			name: "Basic decorators ordering"
+			name: "Basic decorators ordering",
 		},
 		{
 			code: `
@@ -22,14 +22,14 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			@B(1)
 			@C({}, "abc")
 			class MyClass {}`,
-			name: "Basic decorator factories ordering"
+			name: "Basic decorator factories ordering",
 		},
 		{
 			code: `
 			@A() @B
 			@C()() @D
 			class MyClass {}`,
-			name: "Decorators mixed with factories"
+			name: "Decorators mixed with factories",
 		},
 		{
 			code: `
@@ -37,20 +37,20 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			@abd()
 			class MyClass {}`,
 			name: "Case sensitive",
-			options: [{ caseSensitive: true }]
+			options: [{ caseSensitive: true }],
 		},
 		{
 			code: `
 			@abd() @aCc
 			class MyClass {}`,
 			name: "Case insensitive",
-			options: [{ caseSensitive: false }]
+			options: [{ caseSensitive: false }],
 		},
 		{
 			code: `
 			@a @bc @bc @d
 			class MyClass {}`,
-			name: "Duplicated names"
+			name: "Duplicated names",
 		},
 		{
 			code: `
@@ -58,7 +58,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 				@b @a @c
 				public run() { return 0; }
 			}`,
-			name: "Not applied if not on a class"
+			name: "Not applied if not on a class",
 		},
 		{
 			code: `
@@ -67,8 +67,8 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 				public run() { return 0; }
 			}`,
 			name: "Not applied if not on a class (with autoFix)",
-			options: [{ autoFix: true }]
-		}
+			options: [{ autoFix: true }],
+		},
 	],
 
 	invalid: [
@@ -83,7 +83,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			output: `
 			@A
 			@B
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -96,7 +96,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			output: `
 			@A()
 			@C({}, "abc")
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -107,7 +107,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true }],
 			output: `
 			@A() @B
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -120,7 +120,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			output: `
 			@aCc
 			@abd()
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -131,7 +131,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true, caseSensitive: false }],
 			output: `
 			@abd() @aCc
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -142,14 +142,14 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true }],
 			output: `
 			@A @B @C @D
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
 			@D @A @C @B
 			class MyClass {}`,
 			errors: [{ messageId: "incorrect-order" }, { messageId: "incorrect-order" }],
-			name: "With multiple decorators (2 errors detected)"
+			name: "With multiple decorators (2 errors detected)",
 		},
 		{
 			code: `
@@ -160,7 +160,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true }],
 			output: `
 			@A @B @C @D
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -169,9 +169,9 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			errors: [
 				{ messageId: "incorrect-order" },
 				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
+				{ messageId: "incorrect-order" },
 			],
-			name: "Reverse order"
+			name: "Reverse order",
 		},
 		{
 			code: `
@@ -182,7 +182,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true }],
 			output: `
 			@A @B @C @D
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -193,7 +193,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true, direction: "desc" }],
 			output: `
 			@D @C @B @A
-			class MyClass {}`
+			class MyClass {}`,
 		},
 		{
 			code: `
@@ -204,7 +204,7 @@ tester.run(SORT_ON_CLASSES_NAME, sortOnClasses, {
 			options: [{ autoFix: true }],
 			output: `
 			@A @A @C @D
-			class MyClass {}`
-		}
-	]
+			class MyClass {}`,
+		},
+	],
 });

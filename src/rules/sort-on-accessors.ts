@@ -34,7 +34,7 @@ export const sortOnAccessors = createSortRule({
 						if (decorators[0] === node) {
 							sortRuleListener(context, decorators, optionsWithDefault);
 						}
-					}
+					},
 				}
 			: {
 					Decorator(node) {
@@ -48,13 +48,13 @@ export const sortOnAccessors = createSortRule({
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
-					}
+					},
 				};
 	},
 	meta: {
 		docs: {
-			description: "Enforces order of accessors decorators"
-		}
+			description: "Enforces order of accessors decorators",
+		},
 	},
-	name: SORT_ON_ACCESSORS_NAME
+	name: SORT_ON_ACCESSORS_NAME,
 });

@@ -38,7 +38,7 @@ export const sortOnParameters = createSortRule({
 						if (decorators[0] === node) {
 							sortRuleListener(context, decorators, optionsWithDefault);
 						}
-					}
+					},
 				}
 			: {
 					Decorator(node) {
@@ -52,13 +52,13 @@ export const sortOnParameters = createSortRule({
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
-					}
+					},
 				};
 	},
 	meta: {
 		docs: {
-			description: "Enforces order of parameters decorators"
-		}
+			description: "Enforces order of parameters decorators",
+		},
 	},
-	name: SORT_ON_PARAMETERS_NAME
+	name: SORT_ON_PARAMETERS_NAME,
 });

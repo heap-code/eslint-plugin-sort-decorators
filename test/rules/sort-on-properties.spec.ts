@@ -9,7 +9,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@Single
 				public property?: number;
 			}`,
-			name: "Single decorator on accessor"
+			name: "Single decorator on accessor",
 		},
 		{
 			code: `
@@ -18,7 +18,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@B @C
 				public property?: number;
 			}`,
-			name: "Basic decorators ordering"
+			name: "Basic decorators ordering",
 		},
 		{
 			code: `
@@ -28,7 +28,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@C({}, "abc")
 				public property?: number;
 			}`,
-			name: "Basic decorator factories ordering"
+			name: "Basic decorator factories ordering",
 		},
 		{
 			code: `
@@ -37,7 +37,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@C()() @D
 				public property?: number;
 			}`,
-			name: "Decorators mixed with factories"
+			name: "Decorators mixed with factories",
 		},
 		{
 			code: `
@@ -47,7 +47,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				public property?: number;
 			}`,
 			name: "Case sensitive",
-			options: [{ caseSensitive: true }]
+			options: [{ caseSensitive: true }],
 		},
 		{
 			code: `
@@ -56,7 +56,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				public property?: number;
 			}`,
 			name: "Case insensitive",
-			options: [{ caseSensitive: false }]
+			options: [{ caseSensitive: false }],
 		},
 		{
 			code: `
@@ -64,7 +64,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@b @a @c
 				protected get accessor() { return 0; }
 			}`,
-			name: "Not applied if not on a property"
+			name: "Not applied if not on a property",
 		},
 		{
 			code: `
@@ -73,8 +73,8 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				protected get accessor() { return 0; }
 			}`,
 			name: "Not applied if not on a property (with autoFix)",
-			options: [{ autoFix: true }]
-		}
+			options: [{ autoFix: true }],
+		},
 	],
 
 	invalid: [
@@ -93,7 +93,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@A
 				@B
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -110,7 +110,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@A()
 				@C({}, "abc")
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -125,7 +125,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@A() @B
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -142,7 +142,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 				@aCc
 				@abd()
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -157,7 +157,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@abd() @aCc
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -172,7 +172,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@A @B @C @D
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -187,7 +187,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@A @B @C @D
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -198,9 +198,9 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			errors: [
 				{ messageId: "incorrect-order" },
 				{ messageId: "incorrect-order" },
-				{ messageId: "incorrect-order" }
+				{ messageId: "incorrect-order" },
 			],
-			name: "Reverse order"
+			name: "Reverse order",
 		},
 		{
 			code: `
@@ -215,7 +215,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@A @B @C @D
 				public property?: number;
-			}`
+			}`,
 		},
 		{
 			code: `
@@ -230,7 +230,7 @@ tester.run(SORT_ON_PROPERTIES_NAME, sortOnProperties, {
 			class MyClass {
 				@D @C @B @A
 				public property?: number;
-			}`
-		}
-	]
+			}`,
+		},
+	],
 });

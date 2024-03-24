@@ -63,13 +63,13 @@ describe("getDecoratorName", () => {
 					loc: { end: { column: 0, line: 0 }, start: { column: 0, line: 0 } },
 					parent: null as never,
 					range: [0, 0],
-					type: AST_NODE_TYPES.ArrayExpression
+					type: AST_NODE_TYPES.ArrayExpression,
 				},
 				loc: { end: { column: 0, line: 0 }, start: { column: 0, line: 0 } },
 				parent: null as never,
 				range: [0, 0],
-				type: AST_NODE_TYPES.Decorator
-			})
+				type: AST_NODE_TYPES.Decorator,
+			}),
 		).toThrow();
 	});
 });

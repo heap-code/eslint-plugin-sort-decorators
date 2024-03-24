@@ -11,19 +11,19 @@ import {
 	sortOnClasses,
 	sortOnMethods,
 	sortOnParameters,
-	sortOnProperties
+	sortOnProperties,
 } from "./rules";
 
 export default {
 	configs: {
 		recommended: configs.recommended,
-		strict: configs.strict
+		strict: configs.strict,
 	},
 	rules: {
 		[SORT_ON_ACCESSORS_NAME]: sortOnAccessors,
 		[SORT_ON_CLASSES_NAME]: sortOnClasses,
 		[SORT_ON_METHODS_NAME]: sortOnMethods,
 		[SORT_ON_PARAMETERS_NAME]: sortOnParameters,
-		[SORT_ON_PROPERTIES_NAME]: sortOnProperties
-	}
+		[SORT_ON_PROPERTIES_NAME]: sortOnProperties,
+	},
 } satisfies TSESLint.Linter.Plugin;

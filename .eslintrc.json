@@ -290,6 +290,7 @@
 		"prettier",
 		"sonarjs",
 		"sort-destructure-keys",
+		"sort-keys-plus",
 		"typescript-sort-keys",
 		"unicorn",
 		"unused-imports"
@@ -299,7 +300,6 @@
 		"@shopify/no-useless-computed-properties": "error",
 		"@shopify/prefer-early-return": "error",
 		"arrow-parens": "off",
-		"comma-dangle": "error",
 		"curly": ["error", "all"],
 		"eol-last": "error",
 		"eqeqeq": "error",
@@ -397,6 +397,13 @@
 		"semi": ["error", "always"],
 		"sort-destructure-keys/sort-destructure-keys": "error",
 		"sort-keys": [
+			"error",
+			"asc",
+			{
+				"allowLineSeparatedGroups": true
+			}
+		],
+		"sort-keys-plus/sort-keys": [
 			"error",
 			"asc",
 			{

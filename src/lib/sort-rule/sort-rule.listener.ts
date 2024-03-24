@@ -14,7 +14,7 @@ import { getDecoratorName } from "../decorator";
 export function sortRuleListener(
 	context: TSESLint.RuleContext<SortRuleMessageIds, [SortRuleOptions]>,
 	decorators: TSESTree.Decorator[],
-	options: SortRuleOptions
+	options: SortRuleOptions,
 ) {
 	const { autoFix, caseSensitive, direction } = options;
 
@@ -40,7 +40,7 @@ export function sortRuleListener(
 	// Get the decorator names only once
 	const decoratorsWithName = decorators.map(decorator => ({
 		name: getName(decorator),
-		node: decorator
+		node: decorator,
 	}));
 
 	const createFix = (fixer: TSESLint.RuleFixer, decorators: typeof decoratorsWithName) => {
@@ -63,7 +63,7 @@ export function sortRuleListener(
 					: // Otherwise, we need to grab the text after the original node.
 						sourceText.slice(
 							decorators[i].node.range[1], // End index of the current node .
-							decorators[i + 1].node.range[0] // Start index of the next node.
+							decorators[i + 1].node.range[0], // Start index of the next node.
 						);
 
 			return sourceCode.getText(child) + textAfter;
@@ -71,7 +71,7 @@ export function sortRuleListener(
 
 		return fixer.replaceTextRange(
 			[decorators[0].node.range[0], decorators[decorators.length - 1].node.range[1]],
-			newText.join("")
+			newText.join(""),
 		);
 	};
 
@@ -88,11 +88,11 @@ export function sortRuleListener(
 				context.report({
 					data: {
 						after: name,
-						previous: currentName
+						previous: currentName,
 					},
 					fix: autoFix ? fixer => createFix(fixer, decorators) : undefined,
 					messageId: "incorrect-order",
-					node
+					node,
 				});
 
 				return;

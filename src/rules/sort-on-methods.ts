@@ -17,7 +17,7 @@ export const sortOnMethods = createSortRule({
 						}
 
 						sortRuleListener(context, decorators ?? [], optionsWithDefault);
-					}
+					},
 				}
 			: {
 					Decorator(node) {
@@ -32,13 +32,13 @@ export const sortOnMethods = createSortRule({
 						// Get only the decorators after the current one
 						const nodeIndex = decorators.findIndex(decorator => decorator === node);
 						sortRuleListener(context, decorators.slice(nodeIndex), optionsWithDefault);
-					}
+					},
 				};
 	},
 	meta: {
 		docs: {
-			description: "Enforces order of methods decorators"
-		}
+			description: "Enforces order of methods decorators",
+		},
 	},
-	name: SORT_ON_METHODS_NAME
+	name: SORT_ON_METHODS_NAME,
 });

@@ -36,14 +36,14 @@ export function createSortRule(rule: SortRuleWithMetaAndName) {
 				requiresTypeChecking: false,
 
 				...rule.meta.docs,
-				recommended: "recommended"
+				recommended: "recommended",
 			},
 			fixable: "code",
 			messages: {
 				"incorrect-order":
-					"Expected decorators to be in sorted order. `@{{ after }}` should be before `@{{ previous }}`."
+					"Expected decorators to be in sorted order. `@{{ after }}` should be before `@{{ previous }}`.",
 			},
-			type: "layout"
-		}
+			type: "layout",
+		},
 	});
 }
