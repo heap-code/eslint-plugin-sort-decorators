@@ -1,7 +1,7 @@
 import { TSESLint } from "@typescript-eslint/utils";
 import { Linter } from "eslint";
 
-import { SortRuleOptions } from "../lib/sort-rule";
+import { SortRuleParams } from "../lib/sort-rule";
 import {
 	SORT_ON_ACCESSORS_NAME,
 	SORT_ON_CLASSES_NAME,
@@ -16,7 +16,7 @@ export const PLUGIN_NAME = "sort-decorators";
  * @param ruleEntry the rule entry to set to all rules
  * @returns A configuration with all its rules set with the given entry
  */
-export function createConfiguration(ruleEntry: Linter.RuleEntry<[SortRuleOptions]>) {
+export function createConfiguration(ruleEntry: Linter.RuleEntry<[SortRuleParams]>) {
 	return {
 		parser: "@typescript-eslint/parser",
 		plugins: [PLUGIN_NAME],

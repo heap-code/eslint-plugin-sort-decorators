@@ -5,7 +5,7 @@ import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 export const SORT_ON_CLASSES_NAME = "sort-on-classes";
 
 export const sortOnClasses = createSortRule({
-	create: (context, [optionsWithDefault]) => {
+	createRule: (context, [optionsWithDefault]) => {
 		const { autoFix } = optionsWithDefault;
 
 		return autoFix
@@ -30,10 +30,6 @@ export const sortOnClasses = createSortRule({
 					},
 				};
 	},
-	meta: {
-		docs: {
-			description: "Enforces order of class decorators",
-		},
-	},
+	description: "Enforces order of class decorators",
 	name: SORT_ON_CLASSES_NAME,
 });

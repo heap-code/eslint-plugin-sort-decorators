@@ -8,7 +8,7 @@ export function getDecoratorName(decorator: TSESTree.Decorator): string {
 	const getName = (expression: typeof decorator.expression): string => {
 		switch (expression.type) {
 			case TSESTree.AST_NODE_TYPES.CallExpression:
-				return getName(expression.callee);
+				return getName(expression.callee as never);
 
 			case TSESTree.AST_NODE_TYPES.Identifier:
 				return expression.name;
