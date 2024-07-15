@@ -6,16 +6,11 @@ import schema from "./sort-rule.options.schema.json";
 
 type SortRule = ESLintUtils.RuleWithMetaAndName<[SortRuleOptions], SortRuleMessageIds>;
 
-interface SortRuleMeta
-	extends Omit<SortRule["meta"], "docs" | "fixable" | "messages" | "schema" | "type"> {
-	docs: Omit<SortRule["meta"]["docs"], "recommended">;
-}
-
-/**
- * The information to create a "sort-decorators" rule
- */
-export interface SortRuleWithMetaAndName extends Omit<SortRule, "defaultOptions" | "meta"> {
-	meta: SortRuleMeta;
+/** The information to create a "sort-decorators" rule */
+export interface SortRuleParams {
+	createRule: SortRule["create"];
+	description: SortRule["meta"]["docs"]["description"];
+	name: SortRule["name"];
 }
 
 const sortRuleCreator = ESLintUtils.RuleCreator(name => name);
@@ -24,19 +19,17 @@ const sortRuleCreator = ESLintUtils.RuleCreator(name => name);
  * @param rule the parameter to create a rule
  * @returns the created rule
  */
-export function createSortRule(rule: SortRuleWithMetaAndName) {
+export function createSortRule(rule: SortRuleParams) {
 	return sortRuleCreator({
-		...rule,
+		create: rule.createRule,
 		defaultOptions: [{ autoFix: false, caseSensitive: true, direction: "asc" }],
 		meta: {
 			schema: [schema as never],
 
-			...rule.meta,
 			docs: {
-				requiresTypeChecking: false,
-
-				...rule.meta.docs,
+				description: rule.description,
 				recommended: "recommended",
+				requiresTypeChecking: false,
 			},
 			fixable: "code",
 			messages: {
@@ -45,5 +38,6 @@ export function createSortRule(rule: SortRuleWithMetaAndName) {
 			},
 			type: "layout",
 		},
+		name: rule.name,
 	});
 }

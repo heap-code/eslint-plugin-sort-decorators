@@ -5,7 +5,7 @@ import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 export const SORT_ON_PARAMETERS_NAME = "sort-on-parameters";
 
 export const sortOnParameters = createSortRule({
-	create: (context, [optionsWithDefault]) => {
+	createRule: (context, [optionsWithDefault]) => {
 		const { autoFix } = optionsWithDefault;
 
 		const getDecorated = (node: TSESTree.Decorator) => {
@@ -55,10 +55,6 @@ export const sortOnParameters = createSortRule({
 					},
 				};
 	},
-	meta: {
-		docs: {
-			description: "Enforces order of parameters decorators",
-		},
-	},
+	description: "Enforces order of parameters decorators",
 	name: SORT_ON_PARAMETERS_NAME,
 });

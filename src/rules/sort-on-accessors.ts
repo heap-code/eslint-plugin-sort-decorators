@@ -5,7 +5,7 @@ import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 export const SORT_ON_ACCESSORS_NAME = "sort-on-accessors";
 
 export const sortOnAccessors = createSortRule({
-	create: (context, [optionsWithDefault]) => {
+	createRule: (context, [optionsWithDefault]) => {
 		const { autoFix } = optionsWithDefault;
 
 		const getDecorated = (node: TSESTree.Decorator) => {
@@ -51,10 +51,6 @@ export const sortOnAccessors = createSortRule({
 					},
 				};
 	},
-	meta: {
-		docs: {
-			description: "Enforces order of accessors decorators",
-		},
-	},
+	description: "Enforces order of accessors decorators",
 	name: SORT_ON_ACCESSORS_NAME,
 });

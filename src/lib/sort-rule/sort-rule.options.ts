@@ -1,3 +1,4 @@
+/** Options for the sort rule */
 export interface SortRuleOptions {
 	/**
 	 * Automatically fix the order.

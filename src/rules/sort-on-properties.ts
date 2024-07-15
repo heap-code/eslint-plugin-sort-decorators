@@ -5,7 +5,7 @@ import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 export const SORT_ON_PROPERTIES_NAME = "sort-on-properties";
 
 export const sortOnProperties = createSortRule({
-	create: (context, [optionsWithDefault]) => {
+	createRule: (context, [optionsWithDefault]) => {
 		const { autoFix } = optionsWithDefault;
 
 		return autoFix
@@ -30,10 +30,6 @@ export const sortOnProperties = createSortRule({
 					},
 				};
 	},
-	meta: {
-		docs: {
-			description: "Enforces order of properties decorators",
-		},
-	},
+	description: "Enforces order of properties decorators",
 	name: SORT_ON_PROPERTIES_NAME,
 });

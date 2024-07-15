@@ -5,7 +5,7 @@ import { createSortRule, sortRuleListener } from "../lib/sort-rule";
 export const SORT_ON_METHODS_NAME = "sort-on-methods";
 
 export const sortOnMethods = createSortRule({
-	create: (context, [optionsWithDefault]) => {
+	createRule: (context, [optionsWithDefault]) => {
 		const { autoFix } = optionsWithDefault;
 
 		return autoFix
@@ -35,10 +35,6 @@ export const sortOnMethods = createSortRule({
 					},
 				};
 	},
-	meta: {
-		docs: {
-			description: "Enforces order of methods decorators",
-		},
-	},
+	description: "Enforces order of methods decorators",
 	name: SORT_ON_METHODS_NAME,
 });
