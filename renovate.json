@@ -7,7 +7,7 @@
 			"extends": ["packages:eslint", "packages:stylelint"],
 			"groupName": "Linting packages",
 			"groupSlug": "linting",
-			"matchPackageNames": ["@cspell/eslint-plugin", "@shopify/eslint-plugin"]
+			"matchPackageNames": ["@cspell/eslint-plugin"]
 		},
 		{
 			"groupName": "Release it",
