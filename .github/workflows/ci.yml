@@ -12,8 +12,9 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [20.x, 22.x, 24.x]
 
     steps:
       - uses: actions/checkout@v6
@@ -21,7 +22,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          # cache: "npm"
 
       - name: Install packages
         run: npm ci
