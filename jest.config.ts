@@ -12,9 +12,7 @@ export default {
 	transform: {
 		"^.+\\.[tj]s$": [
 			"ts-jest",
-			{
-				tsconfig: "<rootDir>/tsconfig.spec.json",
-			},
+			{ diagnostics: { exclude: ["**"] }, tsconfig: "<rootDir>/tsconfig.spec.json" },
 		],
 	},
 	transformIgnorePatterns: ["node_modules/(?!.*\\.mjs$)"],

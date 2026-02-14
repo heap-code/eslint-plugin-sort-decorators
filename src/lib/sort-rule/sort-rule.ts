@@ -13,7 +13,7 @@ export interface SortRuleParams {
 	name: SortRule["name"];
 }
 
-const sortRuleCreator = ESLintUtils.RuleCreator(name => name);
+const sortRuleCreator = ESLintUtils.RuleCreator<{ requiresTypeChecking: boolean }>(name => name);
 
 /**
  * @param rule the parameter to create a rule
@@ -26,11 +26,7 @@ export function createSortRule(rule: SortRuleParams) {
 		meta: {
 			schema: [schema as never],
 
-			docs: {
-				description: rule.description,
-				recommended: "recommended",
-				requiresTypeChecking: false,
-			},
+			docs: { description: rule.description, requiresTypeChecking: false },
 			fixable: "code",
 			messages: {
 				"incorrect-order":

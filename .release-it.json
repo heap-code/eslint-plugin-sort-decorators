@@ -13,7 +13,8 @@
 		"before:init": "npm run docs:update && npm run schemas:update && git add ./README.md ./docs/rules ./src/*.schema.json"
 	},
 	"npm": {
-		"publish": true
+		"publish": true,
+		"skipChecks": true
 	},
 	"plugins": {
 		"@release-it/conventional-changelog": {
@@ -21,5 +22,8 @@
 			"infile": "CHANGELOG.md",
 			"preset": "angular"
 		}
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

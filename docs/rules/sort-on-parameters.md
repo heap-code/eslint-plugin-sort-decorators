@@ -1,4 +1,6 @@
-# Enforces order of parameters decorators (`sort-decorators/sort-on-parameters`)
+# sort-decorators/sort-on-parameters
+
+📝 Enforces order of parameters decorators.
 
 💼⚠️ This rule is enabled in the 🔒 `strict` config. This rule _warns_ in the ✅ `recommended` config.
 

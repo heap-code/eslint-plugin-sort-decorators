@@ -1,5 +1,5 @@
-import { TSESLint } from "@typescript-eslint/utils";
-import { Linter } from "eslint";
+import type { TSESLint } from "@typescript-eslint/utils";
+import type { Linter } from "eslint";
 
 import { SortRuleParams } from "../lib/sort-rule";
 import {
@@ -27,5 +27,5 @@ export function createConfiguration(ruleEntry: Linter.RuleEntry<[SortRuleParams]
 			[`${PLUGIN_NAME}/${SORT_ON_PARAMETERS_NAME}`]: ruleEntry,
 			[`${PLUGIN_NAME}/${SORT_ON_PROPERTIES_NAME}`]: ruleEntry,
 		},
-	} as const satisfies TSESLint.Linter.ConfigType;
+	} as const satisfies TSESLint.ClassicConfig.Config;
 }
