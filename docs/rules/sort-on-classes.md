@@ -1,4 +1,6 @@
-# Enforces order of class decorators (`sort-decorators/sort-on-classes`)
+# sort-decorators/sort-on-classes
+
+📝 Enforces order of class decorators.
 
 💼⚠️ This rule is enabled in the 🔒 `strict` config. This rule _warns_ in the ✅ `recommended` config.
 

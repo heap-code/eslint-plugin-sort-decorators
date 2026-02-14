@@ -1,4 +1,6 @@
-# Enforces order of methods decorators (`sort-decorators/sort-on-methods`)
+# sort-decorators/sort-on-methods
+
+📝 Enforces order of methods decorators.
 
 💼⚠️ This rule is enabled in the 🔒 `strict` config. This rule _warns_ in the ✅ `recommended` config.
 

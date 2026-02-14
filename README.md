@@ -24,7 +24,50 @@ Next, install `eslint-plugin-sort-decorators`:
 npm i --save-dev eslint-plugin-sort-decorators
 ```
 
-## Usage
+## Usage - Flat Config (Eslint >= 9)
+
+As this plugin only works with _typescript_,
+the parser must be set:
+
+```ts
+import * as tsParser from "@typescript-eslint/parser"
+import eslintSortDecorators from "eslint-plugin-sort-decorators";
+
+export default [
+  // other configurations
+  {
+    files: ["**/*.ts"], 
+    plugins: { "sort-decorators": eslintSortDecorators },
+    languageOptions: { parser: tsParser },
+ 
+    rules: {
+      'sort-decorators/sort-on-classes': 'error',
+    }
+  },
+  // other configurations
+]
+```
+
+Or simply use a configuration preset:
+
+```ts
+import eslintSortDecorators from "eslint-plugin-sort-decorators";
+
+export default [
+  // other configurations
+  eslintSortDecorators.configs["flat/recommended"],
+  // other configurations
+]
+```
+
+### Configuration presets (Flat config)
+
+| Name                                 | Description                                                    |
+|:-------------------------------------|:---------------------------------------------------------------|
+| `plugin:sort-decorators/flat/recommended` | Enables all rules with a `warn` security level.                |
+| `plugin:sort-decorators/flat/strict`      | Enables all rules with a `error` security level and `autoFix`. |
+
+## Usage - Legacy (Eslint < 9)
 
 As this plugin only works with _typescript_,
 the parser must be set in a [.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file-formats)

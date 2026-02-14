@@ -21,7 +21,7 @@ function toV9(configV8: typeof configs.recommended) {
 
 	return {
 		...configV9,
-		//files: ["**/*.ts", "**/*.tsx"],
+		files: ["**/*.ts", "**/*.tsx"],
 		languageOptions: { parser: tsParser },
 		// Set after
 		plugins: undefined,

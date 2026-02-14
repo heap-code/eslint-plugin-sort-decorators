@@ -1,4 +1,6 @@
-# Enforces order of properties decorators (`sort-decorators/sort-on-properties`)
+# sort-decorators/sort-on-properties
+
+📝 Enforces order of properties decorators.
 
 💼⚠️ This rule is enabled in the 🔒 `strict` config. This rule _warns_ in the ✅ `recommended` config.
 

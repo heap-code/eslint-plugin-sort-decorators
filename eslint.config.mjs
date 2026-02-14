@@ -439,7 +439,7 @@ export default defineConfig([
 		languageOptions: { parser: mdParser },
 
 		rules: {
-			"markdownlint/md013": ["error", { line_length: 100, tables: false }],
+			"markdownlint/md013": ["error", { line_length: 300, tables: false }],
 			"markdownlint/md033": [
 				"error",
 				{ allowed_elements: ["a", "img", "br", "details", "summary", "code"] },

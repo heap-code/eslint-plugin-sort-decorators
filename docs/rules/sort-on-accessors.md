@@ -1,4 +1,6 @@
-# Enforces order of accessors decorators (`sort-decorators/sort-on-accessors`)
+# sort-decorators/sort-on-accessors
+
+📝 Enforces order of accessors decorators.
 
 💼⚠️ This rule is enabled in the 🔒 `strict` config. This rule _warns_ in the ✅ `recommended` config.
 
