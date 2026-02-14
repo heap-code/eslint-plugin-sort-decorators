@@ -27,6 +27,7 @@ jobs:
       - name: Install packages
         run: npm ci
 
+      - run: npm ls @typescript-eslint/parser
       - name: Build
         run: npm run build
 
