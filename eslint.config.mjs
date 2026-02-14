@@ -20,9 +20,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import parser from "yaml-eslint-parser";
 
-// eslint-community/eslint-plugin-eslint-comments
-// eslint-plugin-perfectionist
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({

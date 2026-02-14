@@ -80,7 +80,8 @@
 		"schemas:update": "typescript-json-schema src/lib/sort-rule/sort-rule.options.ts SortRuleOptions --noExtraProps --required -o src/lib/sort-rule/sort-rule.options.schema.json",
 		"test": "jest --config jest.config.ts",
 		"test:coverage": "npm run test -- --coverage",
-		"test:watch": "npm run test -- --watch"
+		"test:watch": "npm run test -- --watch",
+		"typecheck": "tsc --noEmit -p ./tsconfig.spec.json"
 	},
 	"version": "0.2.6"
 }
