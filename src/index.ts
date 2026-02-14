@@ -1,3 +1,4 @@
+import * as tsParser from "@typescript-eslint/parser";
 import type { TSESLint } from "@typescript-eslint/utils";
 
 import * as configs from "./configs";
@@ -15,6 +16,18 @@ import {
 	sortOnProperties,
 } from "./rules";
 
+function toV9(configV8: typeof configs.recommended) {
+	const { parser: _, ...configV9 } = configV8;
+
+	return {
+		...configV9,
+		//files: ["**/*.ts", "**/*.tsx"],
+		languageOptions: { parser: tsParser },
+		// Set after
+		plugins: undefined,
+	} as const satisfies TSESLint.FlatConfig.Config;
+}
+
 const plugin = {
 	configs: {
 		// v8
@@ -22,14 +35,8 @@ const plugin = {
 		strict: configs.strict,
 
 		// v9
-		"flat/recommended": {
-			...configs.recommended,
-			plugins: undefined,
-		},
-		"flat/strict": {
-			...configs.recommended,
-			plugins: undefined,
-		},
+		"flat/recommended": toV9(configs.recommended),
+		"flat/strict": toV9(configs.strict),
 	},
 	rules: {
 		[SORT_ON_ACCESSORS_NAME]: sortOnAccessors,

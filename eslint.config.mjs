@@ -73,9 +73,7 @@ export default defineConfig([
 			"@eslint-community/eslint-comments/no-unused-disable": "error",
 			"@eslint-community/eslint-comments/require-description": [
 				"warn",
-				{
-					ignore: ["eslint-enable"],
-				},
+				{ ignore: ["eslint-enable"] },
 			],
 			curly: ["error", "all"],
 			"eol-last": "error",
@@ -97,7 +95,6 @@ export default defineConfig([
 			"import/no-default-export": "error",
 			"import/no-mutable-exports": "error",
 			"import/no-useless-path-segments": "error",
-
 			"import/order": [
 				"error",
 				{
@@ -151,7 +148,6 @@ export default defineConfig([
 					objectsInObjects: true,
 				},
 			],
-
 			"object-property-newline": [
 				"warn",
 				{
@@ -174,7 +170,6 @@ export default defineConfig([
 			],
 
 			"sort-destructure-keys/sort-destructure-keys": "error",
-
 			"sort-keys": [
 				"error",
 				"asc",
@@ -182,14 +177,7 @@ export default defineConfig([
 					allowLineSeparatedGroups: true,
 				},
 			],
-
-			"sort-keys-plus/sort-keys": [
-				"error",
-				"asc",
-				{
-					allowLineSeparatedGroups: true,
-				},
-			],
+			"sort-keys-plus/sort-keys": ["error", "asc", { allowLineSeparatedGroups: true }],
 		},
 	},
 	{
@@ -201,40 +189,18 @@ export default defineConfig([
 
 			"jsonc/key-spacing": [
 				"error",
-				{
-					afterColon: true,
-					beforeColon: false,
-					mode: "strict",
-				},
+				{ afterColon: true, beforeColon: false, mode: "strict" },
 			],
-
 			"jsonc/no-comments": "warn",
-
 			"jsonc/object-curly-newline": [
 				"error",
-				{
-					consistent: true,
-					minProperties: 1,
-					multiline: true,
-				},
+				{ consistent: true, minProperties: 1, multiline: true },
 			],
-
-			"jsonc/object-property-newline": [
-				"error",
-				{
-					allowAllPropertiesOnSameLine: false,
-				},
-			],
-
+			"jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: false }],
 			"jsonc/sort-keys": "error",
-			"max-len": "off",
 
-			"no-multiple-empty-lines": [
-				"error",
-				{
-					max: 0,
-				},
-			],
+			"max-len": "off",
+			"no-multiple-empty-lines": ["error", { max: 0 }],
 		},
 	},
 	{
@@ -266,47 +232,22 @@ export default defineConfig([
 		rules: {
 			"jsdoc/multiline-blocks": [
 				"error",
-				{
-					minimumLengthForMultiline: 60,
-					noMultilineBlocks: true,
-				},
+				{ minimumLengthForMultiline: 60, noMultilineBlocks: true },
 			],
-
-			"jsdoc/no-blank-blocks": [
-				"error",
-				{
-					enableFixer: true,
-				},
-			],
-
+			"jsdoc/no-blank-blocks": ["error", { enableFixer: true }],
 			"jsdoc/no-undefined-types": "off",
 			"jsdoc/require-asterisk-prefix": ["error", "always"],
 			"jsdoc/require-hyphen-before-param-description": ["error", "never"],
-
 			"jsdoc/require-jsdoc": [
 				"warn",
-				{
-					contexts: ["TSEnumDeclaration", "TSInterfaceDeclaration"],
-					publicOnly: true,
-				},
+				{ contexts: ["TSEnumDeclaration", "TSInterfaceDeclaration"], publicOnly: true },
 			],
-
-			"jsdoc/require-param": [
-				"warn",
-				{
-					exemptedBy: ["inheritDoc", "internal", "private"],
-				},
-			],
-
+			"jsdoc/require-param": ["warn", { exemptedBy: ["inheritDoc", "internal", "private"] }],
 			"jsdoc/require-returns": [
 				"warn",
-				{
-					exemptedBy: ["inheritDoc", "internal", "private"],
-				},
+				{ exemptedBy: ["inheritDoc", "internal", "private"] },
 			],
-
 			"jsdoc/require-throws": "warn",
-
 			"jsdoc/tag-lines": [
 				"error",
 				"any",
@@ -322,13 +263,7 @@ export default defineConfig([
 			"sonarjs/non-existent-operator": "error",
 			"sonarjs/prefer-immediate-return": "error",
 
-			"unicorn/filename-case": [
-				"error",
-				{
-					case: "kebabCase",
-				},
-			],
-
+			"unicorn/filename-case": ["error", { case: "kebabCase" }],
 			"unicorn/no-abusive-eslint-disable": "error",
 			"unicorn/no-array-for-each": "error",
 			"unicorn/no-await-expression-member": "error",
@@ -347,12 +282,12 @@ export default defineConfig([
 			"unicorn/prefer-optional-catch-binding": "error",
 			"unicorn/throw-new-error": "error",
 			"unused-imports/no-unused-imports": "error",
-
 			"unused-imports/no-unused-vars": [
 				"warn",
 				{
 					args: "after-used",
 					argsIgnorePattern: "^_",
+					varsIgnorePattern: "^_\\d*",
 				},
 			],
 		},
@@ -376,7 +311,6 @@ export default defineConfig([
 
 		rules: {
 			"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
-
 			"@typescript-eslint/ban-ts-comment": [
 				"error",
 				{
@@ -385,10 +319,8 @@ export default defineConfig([
 					},
 				},
 			],
-
 			"@typescript-eslint/consistent-generic-constructors": ["error", "constructor"],
 			"@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
-
 			"@typescript-eslint/consistent-type-assertions": [
 				"error",
 				{
@@ -396,11 +328,9 @@ export default defineConfig([
 					objectLiteralTypeAssertions: "never",
 				},
 			],
-
 			"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
 			"@typescript-eslint/consistent-type-exports": "error",
 			"@typescript-eslint/explicit-member-accessibility": "error",
-
 			"@typescript-eslint/member-ordering": [
 				"error",
 				{
@@ -435,16 +365,13 @@ export default defineConfig([
 							"private-instance-method",
 						],
 					},
-
 					interfaces: {
 						memberTypes: ["field", "constructor", "method"],
 						order: "alphabetically",
 					},
 				},
 			],
-
 			"@typescript-eslint/no-confusing-non-null-assertion": "error",
-
 			"@typescript-eslint/no-confusing-void-expression": [
 				"error",
 				{
@@ -452,11 +379,8 @@ export default defineConfig([
 					ignoreVoidOperator: true,
 				},
 			],
-
 			"@typescript-eslint/no-extra-non-null-assertion": "error",
-
 			"@typescript-eslint/no-extraneous-class": ["warn", { allowWithDecorator: true }],
-
 			"@typescript-eslint/no-for-in-array": "error",
 			"@typescript-eslint/no-inferrable-types": "error",
 			"@typescript-eslint/no-misused-new": "error",
@@ -464,6 +388,7 @@ export default defineConfig([
 			"@typescript-eslint/no-redundant-type-constituents": "error",
 			"@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
 			"@typescript-eslint/no-unsafe-declaration-merging": "warn",
+			"@typescript-eslint/no-unused-vars": "off",
 			"@typescript-eslint/prefer-for-of": "warn",
 			"@typescript-eslint/prefer-includes": "warn",
 			"@typescript-eslint/prefer-optional-chain": "warn",
@@ -471,7 +396,6 @@ export default defineConfig([
 			"@typescript-eslint/prefer-return-this-type": "error",
 			"@typescript-eslint/prefer-ts-expect-error": "error",
 			"@typescript-eslint/sort-type-constituents": "error",
-
 			"jsdoc/require-param-type": "off",
 			"jsdoc/require-returns-type": "off",
 		},
@@ -489,12 +413,7 @@ export default defineConfig([
 		plugins: { "sort-exports": sortExports },
 
 		rules: {
-			"sort-exports/sort-exports": [
-				"error",
-				{
-					sortDir: "asc",
-				},
-			],
+			"sort-exports/sort-exports": ["error", { sortDir: "asc" }],
 		},
 	},
 	{
@@ -504,16 +423,12 @@ export default defineConfig([
 		plugins: { jest },
 
 		languageOptions: {
-			globals: {
-				...globals.jest,
-			},
+			globals: { ...globals.jest },
 		},
 
 		rules: {
 			"@typescript-eslint/no-non-null-assertion": "off",
-
 			"jest/consistent-test-it": ["error", { fn: "it" }],
-
 			"jest/prefer-lowercase-title": ["error", { ignore: ["describe"] }],
 		},
 	},
@@ -525,31 +440,25 @@ export default defineConfig([
 
 		rules: {
 			"markdownlint/md013": ["error", { line_length: 100, tables: false }],
-
 			"markdownlint/md033": [
 				"error",
 				{ allowed_elements: ["a", "img", "br", "details", "summary", "code"] },
 			],
-
 			"no-trailing-spaces": "off",
 			"prettier/prettier": "off",
 		},
 	},
 	{
 		files: ["**/Dockerfile"],
-
 		languageOptions: { parser: parser },
-
 		rules: { "prettier/prettier": "error" },
 	},
 	{
 		files: ["docs/rules/*.md"],
-
 		rules: { "markdownlint/md024": "off" },
 	},
 	{
 		files: ["**/README.md"],
-
 		rules: { "unicorn/filename-case": "off" },
 	},
 ]);

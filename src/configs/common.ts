@@ -1,5 +1,5 @@
-import { TSESLint } from "@typescript-eslint/utils";
-import { Linter } from "eslint";
+import type { TSESLint } from "@typescript-eslint/utils";
+import type { Linter } from "eslint";
 
 import { SortRuleParams } from "../lib/sort-rule";
 import {
