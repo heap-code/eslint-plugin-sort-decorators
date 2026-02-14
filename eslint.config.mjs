@@ -28,7 +28,6 @@ const compat = new FlatCompat({
 	recommendedConfig: js.configs.recommended,
 });
 
-// eslint-disable-next-line import/no-default-export -- config
 export default defineConfig([
 	globalIgnores([
 		"**/coverage/",
@@ -398,7 +397,13 @@ export default defineConfig([
 		},
 	},
 	{
-		files: ["**/jest.config.ts", "src/index.ts", "src/configs/*.ts"],
+		files: [
+			"eslint.config.mjs",
+			"tsup.config.ts",
+			"**/jest.config.ts",
+			"src/index.ts",
+			"src/configs/*.ts",
+		],
 
 		rules: {
 			"import/no-default-export": "off",
