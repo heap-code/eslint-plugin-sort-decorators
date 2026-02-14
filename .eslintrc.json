@@ -2,8 +2,7 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:eslint-comments/recommended",
-		"plugin:eslint-plugin/recommended",
-		"plugin:typescript-sort-keys/recommended"
+		"plugin:eslint-plugin/recommended"
 	],
 	"overrides": [
 		{
@@ -118,8 +117,6 @@
 				"sonarjs/no-identical-expressions": "error",
 				"sonarjs/non-existent-operator": "error",
 				"sonarjs/prefer-immediate-return": "error",
-				"typescript-sort-keys/interface": "warn",
-				"typescript-sort-keys/string-enum": "warn",
 				"unicorn/filename-case": [
 					"error",
 					{
@@ -366,7 +363,6 @@
 		"sonarjs",
 		"sort-destructure-keys",
 		"sort-keys-plus",
-		"typescript-sort-keys",
 		"unicorn",
 		"unused-imports"
 	],

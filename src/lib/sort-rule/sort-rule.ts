@@ -26,11 +26,7 @@ export function createSortRule(rule: SortRuleParams) {
 		meta: {
 			schema: [schema as never],
 
-			docs: {
-				description: rule.description,
-				recommended: "recommended",
-				requiresTypeChecking: false,
-			},
+			docs: { description: rule.description },
 			fixable: "code",
 			messages: {
 				"incorrect-order":

@@ -1,6 +1,7 @@
-import { TSESLint } from "@typescript-eslint/utils";
+import type { TSESLint } from "@typescript-eslint/utils";
 
 import * as configs from "./configs";
+import { PLUGIN_NAME } from "./configs/common";
 import {
 	SORT_ON_ACCESSORS_NAME,
 	SORT_ON_CLASSES_NAME,
@@ -14,10 +15,21 @@ import {
 	sortOnProperties,
 } from "./rules";
 
-export default {
+const plugin = {
 	configs: {
+		// v8
 		recommended: configs.recommended,
 		strict: configs.strict,
+
+		// v9
+		"flat/recommended": {
+			...configs.recommended,
+			plugins: undefined,
+		},
+		"flat/strict": {
+			...configs.recommended,
+			plugins: undefined,
+		},
 	},
 	rules: {
 		[SORT_ON_ACCESSORS_NAME]: sortOnAccessors,
@@ -27,3 +39,10 @@ export default {
 		[SORT_ON_PROPERTIES_NAME]: sortOnProperties,
 	},
 } satisfies TSESLint.Linter.Plugin;
+
+// @ts-expect-error - TS2322: better?
+plugin.configs["flat/recommended"].plugins = plugin.configs["flat/strict"].plugins = {
+	[PLUGIN_NAME]: plugin,
+};
+
+export default plugin;

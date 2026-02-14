@@ -27,5 +27,5 @@ export function createConfiguration(ruleEntry: Linter.RuleEntry<[SortRuleParams]
 			[`${PLUGIN_NAME}/${SORT_ON_PARAMETERS_NAME}`]: ruleEntry,
 			[`${PLUGIN_NAME}/${SORT_ON_PROPERTIES_NAME}`]: ruleEntry,
 		},
-	} as const satisfies TSESLint.Linter.ConfigType;
+	} as const satisfies TSESLint.ClassicConfig.Config;
 }
