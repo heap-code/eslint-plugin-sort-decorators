@@ -1,4 +1,4 @@
 export * from "./sort-rule";
 export * from "./sort-rule.listener";
-export * from "./sort-rule.message-ids";
-export * from "./sort-rule.options";
+export type * from "./sort-rule.message-ids";
+export type * from "./sort-rule.options";

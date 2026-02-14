@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write # Required for OIDC
+
 jobs:
   job:
     # Ignore the heap-code bot commits + and devDependencies # TODO: better
@@ -13,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.HC_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - uses: actions/checkout@v6
@@ -23,8 +25,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24.x
           cache: "npm"
+          node-version: 24.x
+          registry-url: https://registry.npmjs.org/
 
       - name: Install packages
         run: npm ci
@@ -56,8 +59,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Set npm config
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-
       - name: Release and publish
         run: npx release-it --ci --no-git.requireCleanWorkingDir
+        env:
+          # https://github.com/release-it/release-it/blob/HEAD/docs/npm.md#trusted-publishing-oidc
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
