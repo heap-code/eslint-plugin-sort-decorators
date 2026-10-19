@@ -1,13 +1,16 @@
 import { fixupPluginRules } from "@eslint/compat";
-import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
+import stylistic from "@stylistic/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import { defineConfig, globalIgnores } from "eslint/config";
-import _import from "eslint-plugin-import";
+import eslintPlugin from "eslint-plugin-eslint-plugin";
+import importX from "eslint-plugin-import-x";
 import jest from "eslint-plugin-jest";
 import jsdoc from "eslint-plugin-jsdoc";
-import mdParser from "eslint-plugin-markdownlint/parser.js";
+import jsonc from "eslint-plugin-jsonc";
+import markdownlint from "eslint-plugin-markdownlint";
+import mdParser from "eslint-plugin-markdownlint/parser";
 import prettier from "eslint-plugin-prettier";
 import sonarjs from "eslint-plugin-sonarjs";
 import sortDestructureKeys from "eslint-plugin-sort-destructure-keys";
@@ -15,18 +18,10 @@ import sortExports from "eslint-plugin-sort-exports";
 import sortKeysPlus from "eslint-plugin-sort-keys-plus";
 import unicorn from "eslint-plugin-unicorn";
 import unusedImports from "eslint-plugin-unused-imports";
+import yml from "eslint-plugin-yml";
 import globals from "globals";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import parser from "yaml-eslint-parser";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-	allConfig: js.configs.all,
-	baseDirectory: __dirname,
-	recommendedConfig: js.configs.recommended,
-});
+import tseslint from "typescript-eslint";
+import * as parser from "yaml-eslint-parser";
 
 export default defineConfig([
 	globalIgnores([
@@ -53,14 +48,15 @@ export default defineConfig([
 	js.configs.recommended,
 	comments.recommended,
 	{
-		extends: compat.extends("plugin:eslint-plugin/recommended"),
+		extends: [eslintPlugin.configs.recommended],
 
 		plugins: {
-			import: fixupPluginRules(_import),
+			"@stylistic": stylistic,
+			import: importX,
 			prettier,
 			sonarjs,
 			"sort-destructure-keys": sortDestructureKeys,
-			"sort-keys-plus": sortKeysPlus,
+			"sort-keys-plus": fixupPluginRules(sortKeysPlus),
 			unicorn,
 			"unused-imports": unusedImports,
 		},
@@ -71,8 +67,32 @@ export default defineConfig([
 				"warn",
 				{ ignore: ["eslint-enable"] },
 			],
+			"@stylistic/eol-last": "error",
+			"@stylistic/no-extra-semi": "error",
+			"@stylistic/no-trailing-spaces": "error",
+			"@stylistic/object-curly-spacing": [
+				"error",
+				"always",
+				{
+					objectsInObjects: true,
+				},
+			],
+			"@stylistic/object-property-newline": [
+				"warn",
+				{
+					allowAllPropertiesOnSameLine: true,
+				},
+			],
+			"@stylistic/quotes": [
+				"error",
+				"double",
+				{
+					allowTemplateLiterals: "always",
+					avoidEscape: true,
+				},
+			],
+
 			curly: ["error", "all"],
-			"eol-last": "error",
 			eqeqeq: "error",
 
 			"eslint-plugin/require-meta-docs-description": "error",
@@ -114,8 +134,6 @@ export default defineConfig([
 			"no-case-declarations": "off",
 			"no-console": "error",
 			"no-empty": "error",
-			"no-extra-semi": "error",
-			"no-mixed-spaces-and-tabs": "off",
 
 			"no-restricted-imports": [
 				"error",
@@ -131,39 +149,15 @@ export default defineConfig([
 			],
 
 			"no-return-await": "error",
-			"no-trailing-spaces": "error",
 			"no-unused-expressions": "error",
 			"no-unused-labels": "error",
 			"no-use-before-define": "error",
 			"no-var": "error",
 
-			"object-curly-spacing": [
-				"error",
-				"always",
-				{
-					objectsInObjects: true,
-				},
-			],
-			"object-property-newline": [
-				"warn",
-				{
-					allowAllPropertiesOnSameLine: true,
-				},
-			],
-
 			"prefer-const": "error",
 			"prefer-rest-params": "error",
 			"prefer-template": "error",
 			"prettier/prettier": "error",
-
-			quotes: [
-				"error",
-				"double",
-				{
-					allowTemplateLiterals: true,
-					avoidEscape: true,
-				},
-			],
 
 			"sort-destructure-keys/sort-destructure-keys": "error",
 			"sort-keys": [
@@ -177,7 +171,7 @@ export default defineConfig([
 		},
 	},
 	{
-		extends: compat.extends("plugin:jsonc/base", "plugin:jsonc/recommended-with-json"),
+		extends: [jsonc.configs["flat/recommended-with-json"]],
 		files: ["**/*.json"],
 
 		rules: {
@@ -195,8 +189,16 @@ export default defineConfig([
 			"jsonc/object-property-newline": ["error", { allowAllPropertiesOnSameLine: false }],
 			"jsonc/sort-keys": "error",
 
-			"max-len": "off",
-			"no-multiple-empty-lines": ["error", { max: 0 }],
+			"@stylistic/no-multiple-empty-lines": ["error", { max: 0 }],
+		},
+	},
+	{
+		// JS-only rules that cannot run on the JSON/YAML languages
+		files: ["**/*.json", "**/*.yml", "**/*.yaml"],
+
+		rules: {
+			"sort-keys": "off",
+			"sort-keys-plus/sort-keys": "off",
 		},
 	},
 	{
@@ -214,13 +216,11 @@ export default defineConfig([
 		},
 	},
 	{
-		extends: compat.extends("plugin:yml/recommended", "plugin:yml/prettier"),
+		extends: [yml.configs["flat/recommended"], yml.configs["flat/prettier"]],
 		files: ["**/*.yml", "**/*.yaml"],
-
-		languageOptions: { parser: parser },
 	},
 	{
-		...jsdoc.configs.recommended,
+		...jsdoc.configs["flat/recommended"],
 		files: ["**/*.ts", "**/*.js"],
 
 		plugins: { jsdoc },
@@ -261,9 +261,9 @@ export default defineConfig([
 
 			"unicorn/filename-case": ["error", { case: "kebabCase" }],
 			"unicorn/no-abusive-eslint-disable": "error",
-			"unicorn/no-array-for-each": "error",
 			"unicorn/no-await-expression-member": "error",
 			"unicorn/no-empty-file": "error",
+			"unicorn/no-for-each": "error",
 			"unicorn/no-for-loop": "error",
 			"unicorn/no-lonely-if": "error",
 			"unicorn/no-negated-condition": "error",
@@ -291,14 +291,9 @@ export default defineConfig([
 	{
 		files: ["**/*.ts"],
 
-		extends: compat.extends(
-			"plugin:@typescript-eslint/recommended",
-			"plugin:@typescript-eslint/recommended-requiring-type-checking",
-			"plugin:@typescript-eslint/strict",
-		),
+		extends: [tseslint.configs.recommendedTypeChecked, tseslint.configs.strict],
 
 		languageOptions: {
-			ecmaVersion: 5,
 			parser: tsParser,
 			sourceType: "module",
 
@@ -390,7 +385,6 @@ export default defineConfig([
 			"@typescript-eslint/prefer-optional-chain": "warn",
 			"@typescript-eslint/prefer-reduce-type-parameter": "error",
 			"@typescript-eslint/prefer-return-this-type": "error",
-			"@typescript-eslint/prefer-ts-expect-error": "error",
 			"@typescript-eslint/sort-type-constituents": "error",
 			"jsdoc/require-param-type": "off",
 			"jsdoc/require-returns-type": "off",
@@ -412,17 +406,15 @@ export default defineConfig([
 	{
 		files: ["**/index.ts"],
 
-		plugins: { "sort-exports": sortExports },
+		plugins: { "sort-exports": fixupPluginRules(sortExports) },
 
 		rules: {
 			"sort-exports/sort-exports": ["error", { sortDir: "asc" }],
 		},
 	},
 	{
-		extends: compat.extends("plugin:jest/recommended", "plugin:jest/style"),
+		extends: [jest.configs["flat/recommended"], jest.configs["flat/style"]],
 		files: ["**/*.spec.ts", "**/*.spec.js"],
-
-		plugins: { jest },
 
 		languageOptions: {
 			globals: { ...globals.jest },
@@ -435,18 +427,21 @@ export default defineConfig([
 		},
 	},
 	{
-		extends: compat.extends("plugin:markdownlint/recommended"),
 		files: ["**/*.md"],
 
 		languageOptions: { parser: mdParser },
+		plugins: { markdownlint },
 
 		rules: {
+			...markdownlint.configs.recommended.rules,
+			"@stylistic/no-trailing-spaces": "off",
 			"markdownlint/md013": ["error", { line_length: 300, tables: false }],
 			"markdownlint/md033": [
 				"error",
 				{ allowed_elements: ["a", "img", "br", "details", "summary", "code"] },
 			],
-			"no-trailing-spaces": "off",
+			// Generated tables (eslint-doc-generator) cannot be aligned with emojis
+			"markdownlint/md060": "off",
 			"prettier/prettier": "off",
 		},
 	},

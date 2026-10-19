@@ -42,3 +42,28 @@ jobs:
 
       - name: Tests
         run: npm run test:coverage -- --ci
+
+  # The repository is linted with the latest ESLint, but the rules must work with all supported versions
+  eslint-compat:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint-version: [9, 10]
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "npm"
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Install ESLint v${{ matrix.eslint-version }}
+        run: npm install --no-save --legacy-peer-deps eslint@^${{ matrix.eslint-version }}
+
+      - name: Tests
+        run: npm run test -- --ci
