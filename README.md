@@ -67,12 +67,11 @@ export default [
 | `eslintSortDecorators.configs["flat/recommended"]` | Enables all rules with a `warn` security level.                |
 | `eslintSortDecorators.configs["flat/strict"]`      | Enables all rules with a `error` security level and `autoFix`. |
 
-## Usage - Legacy (ESLint v9 with eslintrc)
+## Usage - Legacy (ESLint v8, or v9 with eslintrc)
 
 > [!WARNING]
 > The legacy eslintrc format was removed in ESLint v10.
-> This section only applies to ESLint v9 with `ESLINT_USE_FLAT_CONFIG=false`.
-> ESLint v8 is no longer supported; use `eslint-plugin-sort-decorators@0.4` for it.
+> This section only applies to ESLint v8, or ESLint v9 with `ESLINT_USE_FLAT_CONFIG=false`.
 
 As this plugin only works with _typescript_,
 the parser must be set in a [.eslintrc](https://eslint.org/docs/v9.x/use/configure/configuration-files-deprecated)
