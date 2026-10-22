@@ -24,7 +24,7 @@ Next, install `eslint-plugin-sort-decorators`:
 npm i --save-dev eslint-plugin-sort-decorators
 ```
 
-## Usage - Flat Config (Eslint >= 9)
+## Usage - Flat Config (ESLint v9 and v10)
 
 As this plugin only works with _typescript_,
 the parser must be set:
@@ -62,15 +62,19 @@ export default [
 
 ### Configuration presets (Flat config)
 
-| Name                                 | Description                                                    |
-|:-------------------------------------|:---------------------------------------------------------------|
-| `plugin:sort-decorators/flat/recommended` | Enables all rules with a `warn` security level.                |
-| `plugin:sort-decorators/flat/strict`      | Enables all rules with a `error` security level and `autoFix`. |
+| Name                                                | Description                                                    |
+|:----------------------------------------------------|:---------------------------------------------------------------|
+| `eslintSortDecorators.configs["flat/recommended"]` | Enables all rules with a `warn` security level.                |
+| `eslintSortDecorators.configs["flat/strict"]`      | Enables all rules with a `error` security level and `autoFix`. |
 
-## Usage - Legacy (Eslint < 9)
+## Usage - Legacy (ESLint v8, or v9 with eslintrc)
+
+> [!WARNING]
+> The legacy eslintrc format was removed in ESLint v10.
+> This section only applies to ESLint v8, or ESLint v9 with `ESLINT_USE_FLAT_CONFIG=false`.
 
 As this plugin only works with _typescript_,
-the parser must be set in a [.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file-formats)
+the parser must be set in a [.eslintrc](https://eslint.org/docs/v9.x/use/configure/configuration-files-deprecated)
 file:
 
 ```json
@@ -115,7 +119,7 @@ Or simply extends a configuration preset:
 ---
 
 > All this configuration can be done on a `override` section:
-> <https://eslint.org/docs/latest/use/configure/configuration-files#how-do-overrides-work>
+> <https://eslint.org/docs/v9.x/use/configure/configuration-files-deprecated#how-do-overrides-work>
 
 ## Rules
 
@@ -139,4 +143,4 @@ Or simply extends a configuration preset:
 
 ## Releases
 
-See information about breaking changes and release notes [here](https://github.com/heap-code/eslint-plugin-sort-decorators/blob/HEAD/CHANGELOG.md).
+See information about breaking changes and release notes in the [changelog](https://github.com/heap-code/eslint-plugin-sort-decorators/blob/HEAD/CHANGELOG.md).
