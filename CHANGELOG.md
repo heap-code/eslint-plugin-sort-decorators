@@ -1,5 +1,12 @@
 # Changelog
 
+# [0.5.0](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.4.0...v0.5.0) (2026-10-24)
+
+
+### Features
+
+* support ESLint v10 ([#417](https://github.com/heap-code/eslint-plugin-sort-decorators/issues/417)) ([350dc12](https://github.com/heap-code/eslint-plugin-sort-decorators/commit/350dc12e86995fd597ac13b67de763b382bc36ff))
+
 # [0.4.0](https://github.com/heap-code/eslint-plugin-sort-decorators/compare/v0.2.6...v0.4.0) (2026-02-14)
 
 
